@@ -1,0 +1,8 @@
+Kiên lươn: FormQuanLyKho ( Nhập hàng hóa mới)
+B.Trí: FromQuanLyNhanViencs (Thêm mới, Tìm kiếm, sửa, xóa, ...)
+Sơn zaj: FormQuanLyMatHang(Thông tin các loại hàng hóa, các mặt hàng)
+Thêm mới mặt hàng, loại hàng (không xóa)
+Minh Óc chó: FormKhachHang
+Tiến cave: FormThongKeDoanhSo(Thống kê doanh số bán ra tháng hiện tại, tiền nhập hàng trong tháng)
+
+Làm nhanh nhanh cmml
