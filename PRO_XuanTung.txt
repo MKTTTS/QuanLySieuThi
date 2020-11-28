@@ -1,0 +1,17 @@
+CREATE PROC [dbo].[THEMKHACHHANG] 
+@makhachhang varchar(10),
+@hoten nvarchar(50),
+@gioitinh nvarchar(10),
+@sdt varchar(20)
+AS
+BEGIN
+	INSERT INTO KhachHang(MaKhachHang, HoTen, GioiTinh, DiemThuong, SDT) VALUES
+	(@makhachhang, @hoten, @gioitinh, 0, @sdt)
+END
+
+
+CREATE PROC [dbo].[MAKHMAX]
+AS
+BEGIN
+	SELECT TOP(1)(CAST(RIGHT(MaKhachHang, 8) AS INT)) as MaLonNhat FROM KhachHang ORDER BY (CAST(RIGHT(MaKhachHang, 8) AS INT)) DESC
+END
