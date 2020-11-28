@@ -661,7 +661,7 @@
             this.panel9.Controls.Add(this.textBoxSDTKHThemmoi);
             this.panel9.Controls.Add(this.textBoxMaKHThemmoi);
             this.panel9.Controls.Add(this.textBoxHoTenKHThemmoi);
-            this.panel9.Location = new System.Drawing.Point(703, 74);
+            this.panel9.Location = new System.Drawing.Point(727, 74);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(557, 621);
             this.panel9.TabIndex = 13;
@@ -781,7 +781,7 @@
             // label17
             // 
             this.label17.Font = new System.Drawing.Font("MS Reference Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(185, 3);
+            this.label17.Location = new System.Drawing.Point(234, 3);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(1552, 68);
             this.label17.TabIndex = 0;
