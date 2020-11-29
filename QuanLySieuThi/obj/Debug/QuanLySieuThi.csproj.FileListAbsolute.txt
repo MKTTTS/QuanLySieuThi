@@ -28,3 +28,4 @@ C:\Users\admin\Desktop\New folder (3)\QuanLySieuThi\QuanLySieuThi\obj\Debug\Quan
 C:\Users\admin\Desktop\New folder (3)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CoreCompileInputs.cache
 C:\Users\admin\Desktop\New folder (3)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 C:\Users\admin\Desktop\New folder (3)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
+C:\Users\admin\Desktop\Thuctapnhom\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormDangNhap.resources

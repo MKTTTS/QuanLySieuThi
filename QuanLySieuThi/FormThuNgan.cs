@@ -79,41 +79,6 @@ namespace QuanLySieuThi
 
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            /*var r = new DatabaseQLST().Select("MAKHMAX");
-            int n = Int32.Parse(r["MaLonNhat"].ToString());
-            n = n + 1;
-            if (n < 10)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "0000000", n.ToString());
-            }
-            if (n > 9 && n < 100)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "000000", n.ToString());
-            }
-            if (n > 99 && n < 1000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "00000", n.ToString());
-            }
-            if (n > 999 && n < 10000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "0000", n.ToString());
-            }
-            if (n > 9999 && n < 100000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "000", n.ToString());
-            }
-            if (n > 99999 && n < 1000000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "00", n.ToString());
-            }
-            if (n > 999999 && n < 10000000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", "0", n.ToString());
-            }
-            if (n > 9999999 && n < 100000000)
-            {
-                this.textBoxMaKHThemmoi.Text = String.Concat("KH", n.ToString());
-            }*/
             LoadThemmoiKH();
             ResetHoaDon();
             this.GioHang.Clear();
@@ -307,7 +272,7 @@ namespace QuanLySieuThi
             {
                 tongtien = Int32.Parse(this.textBoxTongTienCard.Text);
             }
-            catch (Exception ex1)
+            catch (Exception)
             {
                 tongtien = 0;
             }
@@ -315,7 +280,7 @@ namespace QuanLySieuThi
             {
                 tra = Int32.Parse(this.textBoxtraCard.Text);
             }
-            catch (Exception ex2)
+            catch (Exception)
             {
                 tra = 0;
             }
@@ -330,7 +295,7 @@ namespace QuanLySieuThi
             {
                 tongtien = Int32.Parse(this.textBoxTongTienCard.Text);
             }
-            catch (Exception ex1)
+            catch (Exception)
             {
                 tongtien = 0;
             }
@@ -338,7 +303,7 @@ namespace QuanLySieuThi
             {
                 tra = Int32.Parse(this.textBoxtraCard.Text);
             }
-            catch (Exception ex2)
+            catch (Exception)
             {
                 tra = 0;
             }
@@ -385,7 +350,7 @@ namespace QuanLySieuThi
             {
                 tongtien = Int32.Parse(this.textBoxTongTienNoCard.Text);
             }
-            catch (Exception ex1)
+            catch (Exception)
             {
                 tongtien = 0;
             }
@@ -393,7 +358,7 @@ namespace QuanLySieuThi
             {
                 tra = Int32.Parse(this.textBoxTraNocard.Text);
             }
-            catch (Exception ex2)
+            catch (Exception)
             {
                 tra = 0;
             }
@@ -408,7 +373,7 @@ namespace QuanLySieuThi
             {
                 tongtien = Int32.Parse(this.textBoxTongTienNoCard.Text);
             }
-            catch (Exception ex1)
+            catch (Exception)
             {
                 tongtien = 0;
             }
@@ -416,7 +381,7 @@ namespace QuanLySieuThi
             {
                 tra = Int32.Parse(this.textBoxTraNocard.Text);
             }
-            catch (Exception ex2)
+            catch (Exception)
             {
                 tra = 0;
             }
