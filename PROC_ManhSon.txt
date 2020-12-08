@@ -1,0 +1,48 @@
+CREATE PROC [dbo].[THONGTINLOAIMATHANG]
+@maloai INT
+AS
+BEGIN
+	SELECT LoaiMatHang.TenLoai, COUNT(MatHang.MaMatHang) AS Soluong FROM LoaiMatHang LEFT JOIN MatHang ON( LoaiMatHang.MaLoai = MatHang.MaLoai) WHERE LoaiMatHang.MaLoai = @maloai GROUP BY(LoaiMatHang.TenLoai)
+END
+------------------------------------------------
+CREATE PROC [dbo].[MAMHMAX]
+  @tenloai nvarchar(100)
+  AS
+  BEGIN
+	IF(EXISTS(SELECT * FROM dbo.MatHang JOIN dbo.LoaiMatHang ON dbo.MatHang.MaLoai = dbo.LoaiMatHang.MaLoai WHERE dbo.LoaiMatHang.TenLoai = @tenloai))
+	BEGIN
+	SELECT TOP(1) (CAST(RIGHT(MaMatHang, 8) AS INT)) AS MaLonNhat, dbo.LoaiMatHang.MaLoai FROM dbo.MatHang RIGHT JOIN dbo.LoaiMatHang ON dbo.MatHang.MaLoai = dbo.LoaiMatHang.MaLoai WHERE TenLoai = @tenloai ORDER BY(CAST(RIGHT(MaMatHang, 8) AS INT)) DESC
+	END
+	ELSE
+	BEGIN
+		SELECT 0 AS MaLonNhat, dbo.LoaiMatHang.MaLoai FROM dbo.LoaiMatHang WHERE dbo.LoaiMatHang.TenLoai = @tenloai
+	END
+  END
+-------------------------------------------------
+CREATE PROC [dbo].[INSERTMATHANG] 
+  @mamathang varchar(10),
+  @tenmathang nvarchar(100),
+  @soluong int,
+  @maloai int,
+  @xuatxu nvarchar(50),
+  @giaban int
+  AS
+  BEGIN
+	INSERT INTO dbo.MatHang
+	(
+	    MaMatHang,
+	    TenMatHang,
+	    Soluong,
+	    MaLoai,
+	    XuatXu,
+	    GiaBan
+	)
+	VALUES
+	(   @mamathang,  -- MaMatHang - varchar(10)
+	    @tenmathang, -- TenMatHang - nvarchar(100)
+	    @soluong,   -- Soluong - int
+	    @maloai,   -- MaLoai - int
+	    @xuatxu, -- XuatXu - nvarchar(50)
+	    @giaban    -- GiaBan - int
+	    )
+  END
