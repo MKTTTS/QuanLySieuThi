@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
                this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+               this.label1 = new System.Windows.Forms.Label();
+               this.txtSoCMND = new Guna.UI2.WinForms.Guna2TextBox();
                this.btnThemAnh = new Guna.UI2.WinForms.Guna2Button();
                this.label10 = new System.Windows.Forms.Label();
                this.label9 = new System.Windows.Forms.Label();
@@ -58,8 +60,6 @@
                this.btnThem = new Guna.UI2.WinForms.Guna2Button();
                this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
                this.dgvDSNV = new Guna.UI2.WinForms.Guna2DataGridView();
-               this.label1 = new System.Windows.Forms.Label();
-               this.txtSoCMND = new Guna.UI2.WinForms.Guna2TextBox();
                this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
                this.HoTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
                this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,6 +112,40 @@
                this.guna2GroupBox1.TabIndex = 31;
                this.guna2GroupBox1.Text = "Thông Tin Nhân Viên";
                // 
+               // label1
+               // 
+               this.label1.AutoSize = true;
+               this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.label1.Location = new System.Drawing.Point(52, 345);
+               this.label1.Name = "label1";
+               this.label1.Size = new System.Drawing.Size(73, 19);
+               this.label1.TabIndex = 42;
+               this.label1.Text = "Số CMND";
+               // 
+               // txtSoCMND
+               // 
+               this.txtSoCMND.BorderRadius = 5;
+               this.txtSoCMND.Cursor = System.Windows.Forms.Cursors.IBeam;
+               this.txtSoCMND.DefaultText = "";
+               this.txtSoCMND.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+               this.txtSoCMND.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+               this.txtSoCMND.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+               this.txtSoCMND.DisabledState.Parent = this.txtSoCMND;
+               this.txtSoCMND.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+               this.txtSoCMND.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+               this.txtSoCMND.FocusedState.Parent = this.txtSoCMND;
+               this.txtSoCMND.Font = new System.Drawing.Font("Segoe UI", 9F);
+               this.txtSoCMND.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+               this.txtSoCMND.HoverState.Parent = this.txtSoCMND;
+               this.txtSoCMND.Location = new System.Drawing.Point(170, 339);
+               this.txtSoCMND.Name = "txtSoCMND";
+               this.txtSoCMND.PasswordChar = '\0';
+               this.txtSoCMND.PlaceholderText = "";
+               this.txtSoCMND.SelectedText = "";
+               this.txtSoCMND.ShadowDecoration.Parent = this.txtSoCMND;
+               this.txtSoCMND.Size = new System.Drawing.Size(186, 31);
+               this.txtSoCMND.TabIndex = 43;
+               // 
                // btnThemAnh
                // 
                this.btnThemAnh.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
@@ -130,6 +164,7 @@
                this.btnThemAnh.Size = new System.Drawing.Size(96, 32);
                this.btnThemAnh.TabIndex = 41;
                this.btnThemAnh.Text = "Thêm Ảnh";
+               this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
                // 
                // label10
                // 
@@ -451,6 +486,7 @@
                this.btnXoa.Size = new System.Drawing.Size(96, 32);
                this.btnXoa.TabIndex = 29;
                this.btnXoa.Text = "Xóa";
+               this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
                // 
                // btnSua
                // 
@@ -470,6 +506,7 @@
                this.btnSua.Size = new System.Drawing.Size(96, 32);
                this.btnSua.TabIndex = 28;
                this.btnSua.Text = "Sửa";
+               this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
                // 
                // btnThem
                // 
@@ -489,6 +526,7 @@
                this.btnThem.Size = new System.Drawing.Size(96, 32);
                this.btnThem.TabIndex = 27;
                this.btnThem.Text = "Thêm";
+               this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
                // 
                // guna2Panel1
                // 
@@ -504,21 +542,21 @@
                // 
                // dgvDSNV
                // 
-               dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-               this.dgvDSNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+               dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+               this.dgvDSNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
                this.dgvDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvDSNV.BackgroundColor = System.Drawing.Color.White;
                this.dgvDSNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgvDSNV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
                this.dgvDSNV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-               dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-               this.dgvDSNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+               dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+               dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+               dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+               dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+               dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+               dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dgvDSNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
                this.dgvDSNV.ColumnHeadersHeight = 43;
                this.dgvDSNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVien,
@@ -531,17 +569,19 @@
             this.DiaChi,
             this.QueQuan,
             this.MaChucVu});
-               dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-               dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-               dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-               dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgvDSNV.DefaultCellStyle = dataGridViewCellStyle3;
+               dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+               dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+               dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+               dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgvDSNV.DefaultCellStyle = dataGridViewCellStyle12;
+               this.dgvDSNV.EnableHeadersVisualStyles = false;
                this.dgvDSNV.GridColor = System.Drawing.SystemColors.Control;
                this.dgvDSNV.Location = new System.Drawing.Point(6, 6);
                this.dgvDSNV.Name = "dgvDSNV";
+               this.dgvDSNV.RowHeadersVisible = false;
                this.dgvDSNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
                this.dgvDSNV.Size = new System.Drawing.Size(1353, 544);
                this.dgvDSNV.TabIndex = 0;
@@ -567,40 +607,6 @@
                this.dgvDSNV.ThemeStyle.RowsStyle.Height = 22;
                this.dgvDSNV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.White;
                this.dgvDSNV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-               // 
-               // label1
-               // 
-               this.label1.AutoSize = true;
-               this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label1.Location = new System.Drawing.Point(52, 345);
-               this.label1.Name = "label1";
-               this.label1.Size = new System.Drawing.Size(73, 19);
-               this.label1.TabIndex = 42;
-               this.label1.Text = "Số CMND";
-               // 
-               // txtSoCMND
-               // 
-               this.txtSoCMND.BorderRadius = 5;
-               this.txtSoCMND.Cursor = System.Windows.Forms.Cursors.IBeam;
-               this.txtSoCMND.DefaultText = "";
-               this.txtSoCMND.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-               this.txtSoCMND.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-               this.txtSoCMND.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-               this.txtSoCMND.DisabledState.Parent = this.txtSoCMND;
-               this.txtSoCMND.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-               this.txtSoCMND.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-               this.txtSoCMND.FocusedState.Parent = this.txtSoCMND;
-               this.txtSoCMND.Font = new System.Drawing.Font("Segoe UI", 9F);
-               this.txtSoCMND.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-               this.txtSoCMND.HoverState.Parent = this.txtSoCMND;
-               this.txtSoCMND.Location = new System.Drawing.Point(170, 339);
-               this.txtSoCMND.Name = "txtSoCMND";
-               this.txtSoCMND.PasswordChar = '\0';
-               this.txtSoCMND.PlaceholderText = "";
-               this.txtSoCMND.SelectedText = "";
-               this.txtSoCMND.ShadowDecoration.Parent = this.txtSoCMND;
-               this.txtSoCMND.Size = new System.Drawing.Size(186, 31);
-               this.txtSoCMND.TabIndex = 43;
                // 
                // MaNhanVien
                // 
@@ -670,7 +676,7 @@
                this.Controls.Add(this.groupDSNV);
                this.Controls.Add(this.guna2GroupBox1);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-               this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+               this.Margin = new System.Windows.Forms.Padding(2);
                this.Name = "FormQuanLyNhanViencs";
                this.Text = "FormQuanLyNhanViencs";
                this.Load += new System.EventHandler(this.FormQuanLyNhanViencs_Load);

@@ -14,7 +14,9 @@ namespace QuanLySieuThi
 {
     public partial class FormQuanLyNhanViencs : Form
     {
-          string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
+          string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString; //link csdl
+
+          string imageURL = null;
           public FormQuanLyNhanViencs()
         {
             InitializeComponent();
@@ -35,6 +37,39 @@ namespace QuanLySieuThi
 
 
                con.Close();
+          }
+
+          private void btnThemAnh_Click(object sender, EventArgs e)
+          {
+               using(OpenFileDialog ofd = new OpenFileDialog())
+               {
+                    if(ofd.ShowDialog()==DialogResult.OK)
+                    {
+                         imageURL = ofd.FileName;
+                         pbAnh.Image = Image.FromFile(ofd.FileName);
+                    }
+                    /*
+                     Image img = pictureBox1.Image;
+                     byte[] arr;
+                     ImageConverter converter = new ImageConverter();
+                     arr=(byte[])converter.ConvertTo(img, typeof(byte[]));
+                     */
+               }
+          }
+
+          private void btnThem_Click(object sender, EventArgs e)
+          {
+
+          }
+
+          private void btnSua_Click(object sender, EventArgs e)
+          {
+
+          }
+
+          private void btnXoa_Click(object sender, EventArgs e)
+          {
+
           }
      }
 }
