@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+               System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
                this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+               this.label11 = new System.Windows.Forms.Label();
+               this.txtQueQuan = new Guna.UI2.WinForms.Guna2TextBox();
                this.label1 = new System.Windows.Forms.Label();
                this.txtSoCMND = new Guna.UI2.WinForms.Guna2TextBox();
                this.btnThemAnh = new Guna.UI2.WinForms.Guna2Button();
@@ -84,6 +86,8 @@
                this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
                this.guna2GroupBox1.BorderRadius = 5;
                this.guna2GroupBox1.BorderThickness = 3;
+               this.guna2GroupBox1.Controls.Add(this.label11);
+               this.guna2GroupBox1.Controls.Add(this.txtQueQuan);
                this.guna2GroupBox1.Controls.Add(this.label1);
                this.guna2GroupBox1.Controls.Add(this.txtSoCMND);
                this.guna2GroupBox1.Controls.Add(this.btnThemAnh);
@@ -108,9 +112,43 @@
                this.guna2GroupBox1.Location = new System.Drawing.Point(12, 12);
                this.guna2GroupBox1.Name = "guna2GroupBox1";
                this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
-               this.guna2GroupBox1.Size = new System.Drawing.Size(409, 697);
+               this.guna2GroupBox1.Size = new System.Drawing.Size(409, 768);
                this.guna2GroupBox1.TabIndex = 31;
                this.guna2GroupBox1.Text = "Thông Tin Nhân Viên";
+               // 
+               // label11
+               // 
+               this.label11.AutoSize = true;
+               this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+               this.label11.Location = new System.Drawing.Point(52, 398);
+               this.label11.Name = "label11";
+               this.label11.Size = new System.Drawing.Size(78, 19);
+               this.label11.TabIndex = 44;
+               this.label11.Text = "Quê Quán";
+               // 
+               // txtQueQuan
+               // 
+               this.txtQueQuan.BorderRadius = 5;
+               this.txtQueQuan.Cursor = System.Windows.Forms.Cursors.IBeam;
+               this.txtQueQuan.DefaultText = "";
+               this.txtQueQuan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+               this.txtQueQuan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+               this.txtQueQuan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+               this.txtQueQuan.DisabledState.Parent = this.txtQueQuan;
+               this.txtQueQuan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+               this.txtQueQuan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+               this.txtQueQuan.FocusedState.Parent = this.txtQueQuan;
+               this.txtQueQuan.Font = new System.Drawing.Font("Segoe UI", 9F);
+               this.txtQueQuan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+               this.txtQueQuan.HoverState.Parent = this.txtQueQuan;
+               this.txtQueQuan.Location = new System.Drawing.Point(170, 398);
+               this.txtQueQuan.Name = "txtQueQuan";
+               this.txtQueQuan.PasswordChar = '\0';
+               this.txtQueQuan.PlaceholderText = "";
+               this.txtQueQuan.SelectedText = "";
+               this.txtQueQuan.ShadowDecoration.Parent = this.txtQueQuan;
+               this.txtQueQuan.Size = new System.Drawing.Size(186, 48);
+               this.txtQueQuan.TabIndex = 45;
                // 
                // label1
                // 
@@ -145,6 +183,7 @@
                this.txtSoCMND.ShadowDecoration.Parent = this.txtSoCMND;
                this.txtSoCMND.Size = new System.Drawing.Size(186, 31);
                this.txtSoCMND.TabIndex = 43;
+               this.txtSoCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
                // 
                // btnThemAnh
                // 
@@ -158,7 +197,7 @@
                this.btnThemAnh.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
                this.btnThemAnh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
                this.btnThemAnh.HoverState.Parent = this.btnThemAnh;
-               this.btnThemAnh.Location = new System.Drawing.Point(206, 636);
+               this.btnThemAnh.Location = new System.Drawing.Point(206, 702);
                this.btnThemAnh.Name = "btnThemAnh";
                this.btnThemAnh.ShadowDecoration.Parent = this.btnThemAnh;
                this.btnThemAnh.Size = new System.Drawing.Size(96, 32);
@@ -209,7 +248,7 @@
                // label8
                // 
                this.label8.AutoSize = true;
-               this.label8.Location = new System.Drawing.Point(133, 10);
+               this.label8.Location = new System.Drawing.Point(133, 6);
                this.label8.Name = "label8";
                this.label8.Size = new System.Drawing.Size(30, 19);
                this.label8.TabIndex = 21;
@@ -218,7 +257,7 @@
                // label7
                // 
                this.label7.AutoSize = true;
-               this.label7.Location = new System.Drawing.Point(57, 10);
+               this.label7.Location = new System.Drawing.Point(57, 6);
                this.label7.Name = "label7";
                this.label7.Size = new System.Drawing.Size(41, 19);
                this.label7.TabIndex = 20;
@@ -241,6 +280,7 @@
                this.checkNu.UncheckedState.BorderThickness = 0;
                this.checkNu.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
                this.checkNu.UncheckedState.Parent = this.checkNu;
+               this.checkNu.CheckedChanged += new System.EventHandler(this.checkNu_CheckedChanged);
                // 
                // checkNam
                // 
@@ -259,6 +299,7 @@
                this.checkNam.UncheckedState.BorderThickness = 0;
                this.checkNam.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
                this.checkNam.UncheckedState.Parent = this.checkNam;
+               this.checkNam.CheckedChanged += new System.EventHandler(this.checkNam_CheckedChanged);
                // 
                // dtpNgaySinh
                // 
@@ -285,7 +326,7 @@
                this.guna2Panel3.BorderRadius = 5;
                this.guna2Panel3.BorderThickness = 5;
                this.guna2Panel3.Controls.Add(this.pbAnh);
-               this.guna2Panel3.Location = new System.Drawing.Point(168, 474);
+               this.guna2Panel3.Location = new System.Drawing.Point(168, 540);
                this.guna2Panel3.Name = "guna2Panel3";
                this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
                this.guna2Panel3.Size = new System.Drawing.Size(188, 133);
@@ -306,7 +347,7 @@
                // 
                this.label6.AutoSize = true;
                this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label6.Location = new System.Drawing.Point(52, 474);
+               this.label6.Location = new System.Drawing.Point(52, 540);
                this.label6.Name = "label6";
                this.label6.Size = new System.Drawing.Size(37, 19);
                this.label6.TabIndex = 35;
@@ -316,7 +357,7 @@
                // 
                this.label5.AutoSize = true;
                this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-               this.label5.Location = new System.Drawing.Point(52, 400);
+               this.label5.Location = new System.Drawing.Point(52, 468);
                this.label5.Name = "label5";
                this.label5.Size = new System.Drawing.Size(56, 19);
                this.label5.TabIndex = 33;
@@ -337,7 +378,7 @@
                this.txtDiaChi.Font = new System.Drawing.Font("Segoe UI", 9F);
                this.txtDiaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
                this.txtDiaChi.HoverState.Parent = this.txtDiaChi;
-               this.txtDiaChi.Location = new System.Drawing.Point(170, 400);
+               this.txtDiaChi.Location = new System.Drawing.Point(170, 468);
                this.txtDiaChi.Name = "txtDiaChi";
                this.txtDiaChi.PasswordChar = '\0';
                this.txtDiaChi.PlaceholderText = "";
@@ -379,6 +420,7 @@
                this.txtSDT.ShadowDecoration.Parent = this.txtSDT;
                this.txtSDT.Size = new System.Drawing.Size(186, 31);
                this.txtSDT.TabIndex = 32;
+               this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
                // 
                // label3
                // 
@@ -464,7 +506,7 @@
                this.groupDSNV.Location = new System.Drawing.Point(454, 12);
                this.groupDSNV.Name = "groupDSNV";
                this.groupDSNV.ShadowDecoration.Parent = this.groupDSNV;
-               this.groupDSNV.Size = new System.Drawing.Size(1399, 697);
+               this.groupDSNV.Size = new System.Drawing.Size(1382, 768);
                this.groupDSNV.TabIndex = 32;
                this.groupDSNV.Text = "Danh Sách Nhân Viên: ";
                // 
@@ -537,26 +579,26 @@
                this.guna2Panel1.Location = new System.Drawing.Point(20, 54);
                this.guna2Panel1.Name = "guna2Panel1";
                this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-               this.guna2Panel1.Size = new System.Drawing.Size(1362, 553);
+               this.guna2Panel1.Size = new System.Drawing.Size(1343, 553);
                this.guna2Panel1.TabIndex = 26;
                // 
                // dgvDSNV
                // 
-               dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-               this.dgvDSNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+               dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+               this.dgvDSNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
                this.dgvDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
                this.dgvDSNV.BackgroundColor = System.Drawing.Color.White;
                this.dgvDSNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
                this.dgvDSNV.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
                this.dgvDSNV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-               dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-               dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-               dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-               dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-               dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-               dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-               this.dgvDSNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+               dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+               dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+               dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+               dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+               dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+               dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+               this.dgvDSNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
                this.dgvDSNV.ColumnHeadersHeight = 43;
                this.dgvDSNV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaNhanVien,
@@ -569,21 +611,21 @@
             this.DiaChi,
             this.QueQuan,
             this.MaChucVu});
-               dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-               dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
-               dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-               dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-               dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-               dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-               this.dgvDSNV.DefaultCellStyle = dataGridViewCellStyle12;
+               dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+               dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
+               dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+               dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+               dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+               dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+               this.dgvDSNV.DefaultCellStyle = dataGridViewCellStyle3;
                this.dgvDSNV.EnableHeadersVisualStyles = false;
                this.dgvDSNV.GridColor = System.Drawing.SystemColors.Control;
                this.dgvDSNV.Location = new System.Drawing.Point(6, 6);
                this.dgvDSNV.Name = "dgvDSNV";
                this.dgvDSNV.RowHeadersVisible = false;
-               this.dgvDSNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-               this.dgvDSNV.Size = new System.Drawing.Size(1353, 544);
+               this.dgvDSNV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+               this.dgvDSNV.Size = new System.Drawing.Size(1334, 544);
                this.dgvDSNV.TabIndex = 0;
                this.dgvDSNV.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
                this.dgvDSNV.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -672,12 +714,13 @@
                // 
                this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-               this.ClientSize = new System.Drawing.Size(1848, 721);
+               this.ClientSize = new System.Drawing.Size(1848, 792);
                this.Controls.Add(this.groupDSNV);
                this.Controls.Add(this.guna2GroupBox1);
                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
                this.Margin = new System.Windows.Forms.Padding(2);
                this.Name = "FormQuanLyNhanViencs";
+               this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
                this.Text = "FormQuanLyNhanViencs";
                this.Load += new System.EventHandler(this.FormQuanLyNhanViencs_Load);
                this.guna2GroupBox1.ResumeLayout(false);
@@ -734,5 +777,7 @@
           private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
           private System.Windows.Forms.DataGridViewTextBoxColumn QueQuan;
           private System.Windows.Forms.DataGridViewTextBoxColumn MaChucVu;
+          private System.Windows.Forms.Label label11;
+          private Guna.UI2.WinForms.Guna2TextBox txtQueQuan;
      }
 }

@@ -14,7 +14,11 @@ namespace QuanLySieuThi
 {
     public partial class FormQuanLyNhanViencs : Form
     {
+          
           string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString; //link csdl
+          string maCV = "";
+          string gTinh = " ";
+
 
           string imageURL = null;
           public FormQuanLyNhanViencs()
@@ -49,17 +53,28 @@ namespace QuanLySieuThi
                          pbAnh.Image = Image.FromFile(ofd.FileName);
                     }
                     /*
-                     Image img = pictureBox1.Image;
-                     byte[] arr;
-                     ImageConverter converter = new ImageConverter();
-                     arr=(byte[])converter.ConvertTo(img, typeof(byte[]));
+                     
                      */
                }
           }
 
           private void btnThem_Click(object sender, EventArgs e)
           {
+               Image img = pbAnh.Image;
+               byte[] arr;
+               ImageConverter converter = new ImageConverter();
+               arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
+               SqlConnection con = new SqlConnection(conString);
+               con.Open();
+
+               
+
+               string qry_ThemNV = "insert into NhanVien values ('" + txtMaNV.Text + "','" + txtHoTen.Text + "','" + dtpNgaySinh.Value.Day + "','" + txtSDT.Text + "','" + txtSoCMND.Text 
+                                   + "','" + txtDiaChi.Text + "','" + arr + "','" + maCV + "','" + txtQueQuan.Text + "','" + gTinh + "')";
+               SqlCommand cmd = new SqlCommand(qry_ThemNV, con);
+
+               con.Close();
           }
 
           private void btnSua_Click(object sender, EventArgs e)
@@ -70,6 +85,33 @@ namespace QuanLySieuThi
           private void btnXoa_Click(object sender, EventArgs e)
           {
 
+          }
+
+          private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+          {
+               char ch = e.KeyChar;
+               if (!Char.IsDigit(ch) && ch != 8 && ch != 46)
+               {
+                    e.Handled = true;
+               }
+          }
+
+          private void checkNam_CheckedChanged(object sender, EventArgs e)
+          {
+               if(checkNam.Checked == true)
+               {
+                    gTinh = "Nam";
+                    checkNu.Checked = false;
+               }
+          }
+
+          private void checkNu_CheckedChanged(object sender, EventArgs e)
+          {
+               if (checkNu.Checked == true)
+               {
+                    gTinh = "Nữ";
+                    checkNam.Checked = false;
+               }
           }
      }
 }

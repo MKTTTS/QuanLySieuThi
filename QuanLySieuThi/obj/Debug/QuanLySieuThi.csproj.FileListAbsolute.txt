@@ -107,3 +107,7 @@ D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\de\DevExpress.Pdf.v19.2.C
 D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\es\DevExpress.Pdf.v19.2.Core.resources.dll
 D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\ja\DevExpress.Pdf.v19.2.Core.resources.dll
 D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\ru\DevExpress.Pdf.v19.2.Core.resources.dll
+D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\EntityFramework.dll
+D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\EntityFramework.SqlServer.dll
+D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\EntityFramework.xml
+D:\Thuc Tap Nhom\QuanLySieuThi\QuanLySieuThi\bin\Debug\EntityFramework.SqlServer.xml
