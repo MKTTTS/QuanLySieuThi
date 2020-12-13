@@ -1,0 +1,11 @@
+CREATE TRIGGER [dbo].[INSERTDONVIHANGHOA] ON [dbo].[DonViHangHoa] FOR INSERT
+AS
+BEGIN
+	UPDATE MatHang SET MatHang.Soluong = MatHang.Soluong + 1 WHERE MatHang.MaMatHang = (SELECT MaMatHang FROM inserted)
+END
+-----------------------------------------------------
+CREATE TRIGGER [dbo].[DELETEDONVIHANGHOA] ON [dbo].[DonViHangHoa] FOR DELETE
+AS
+BEGIN
+	UPDATE MatHang SET MatHang.Soluong = MatHang.Soluong - 1 WHERE MatHang.MaMatHang = (SELECT MaMatHang FROM deleted)
+END
