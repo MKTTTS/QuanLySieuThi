@@ -64,3 +64,4 @@ E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuTh
 E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
 C:\Users\admin\Desktop\Thuctapnhom\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormXoaMatHang.resources
+C:\Users\admin\Desktop\Thuctapnhom\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormThuNgan.resources

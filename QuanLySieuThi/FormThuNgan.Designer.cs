@@ -115,8 +115,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
@@ -144,8 +144,8 @@
             // 
             // panelThongTinHoaDon
             // 
-            this.panelThongTinHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.panelThongTinHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelThongTinHoaDon.BackColor = System.Drawing.Color.White;
             this.panelThongTinHoaDon.Controls.Add(this.panel6);
@@ -216,6 +216,7 @@
             this.buttonNhapHoaDon.TabIndex = 22;
             this.buttonNhapHoaDon.Text = "Hoàn tất";
             this.buttonNhapHoaDon.UseVisualStyleBackColor = true;
+            this.buttonNhapHoaDon.Click += new System.EventHandler(this.buttonNhapHoaDon_Click);
             // 
             // label11
             // 
@@ -320,7 +321,7 @@
             // 
             // panelThongTinKH
             // 
-            this.panelThongTinKH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.panelThongTinKH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelThongTinKH.BackColor = System.Drawing.Color.White;
             this.panelThongTinKH.Controls.Add(this.panel4);
@@ -535,6 +536,7 @@
             this.buttonInHoaDonNoCard.TabIndex = 22;
             this.buttonInHoaDonNoCard.Text = "Hoàn tất";
             this.buttonInHoaDonNoCard.UseVisualStyleBackColor = true;
+            this.buttonInHoaDonNoCard.Click += new System.EventHandler(this.buttonInHoaDonNoCard_Click);
             // 
             // label12
             // 
