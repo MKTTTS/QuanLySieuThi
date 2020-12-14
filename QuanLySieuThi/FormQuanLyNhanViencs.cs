@@ -18,6 +18,7 @@ namespace QuanLySieuThi
           string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString; //link csdl
           string maCV = "";
           string gTinh = " ";
+          int soNV = 0;
 
 
           string imageURL = null;
@@ -31,9 +32,10 @@ namespace QuanLySieuThi
                SqlConnection con = new SqlConnection(conString);
                con.Open();
 
+               #region Mã Nhân Viên Mới
                string qry_SoNV = "SELECT COUNT(*) FROM NhanVien";
                SqlCommand da_SoNV = new SqlCommand(qry_SoNV, con);
-               int soNV = (int)da_SoNV.ExecuteScalar();
+               soNV = (int)da_SoNV.ExecuteScalar();
                groupDSNV.Text = "Danh Sách Nhân Viên: " + soNV + " người";
 
                string soNV_String = (soNV+1).ToString();
@@ -47,6 +49,7 @@ namespace QuanLySieuThi
 
                txtMaNV.Text = maNV_moi;
                txtMaNV.Enabled = false;
+               #endregion 
 
                string qry_DSNV = "SELECT * FROM NhanVien";
                SqlDataAdapter da_DSNV = new SqlDataAdapter(qry_DSNV,con);
@@ -128,7 +131,25 @@ namespace QuanLySieuThi
 
           private void btnXoa_Click(object sender, EventArgs e)
           {
+               string maXoa_string = txtMaNV.Text;
+               
+               int maXoa = Convert.ToInt32(maXoa_string);
+               for(int i = maXoa+1; i <= soNV; i++)
+               {
+                    int maDay = i; // mã được đẩy lên
+                    string maDay_string = maDay.ToString();
+                    string soChuSo_0 = "";
+                    for (int j = 0; i < 8 - maDay_string.Length; i++)
+                    {
+                         soChuSo_0 = soChuSo_0 + "0";
+                    }
+                    string maDay_full = "NV" + soChuSo_0 + maDay_string;
 
+                    int maMoi = maDay - 1;
+                    string maMoi_string = maMoi.ToString();
+                    for
+
+               }
           }
 
           private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
@@ -156,6 +177,34 @@ namespace QuanLySieuThi
                     gTinh = "Nữ";
                     checkNam.Checked = false;
                }
+          }
+
+          private void dgvDSNV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+          {
+               txtMaNV.Enabled = true;
+
+               string maCV = "";
+               DataGridViewRow row = this.dgvDSNV.Rows[e.RowIndex];
+
+               txtMaNV.Text = row.Cells["MaNhanVien"].Value.ToString();
+               txtHoTen.Text = row.Cells["HoTenNhanVien"].Value.ToString();
+               txtSDT.Text = row.Cells["SDT"].Value.ToString();
+               txtSoCMND.Text = row.Cells["SoCMND"].Value.ToString();
+               txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
+               txtQueQuan.Text = row.Cells["QueQuan"].Value.ToString();
+
+               #region Lấy chức vụ
+               maCV = row.Cells["MaChucVu"].Value.ToString();
+               SqlConnection con = new SqlConnection(conString);
+               con.Open();
+
+               string qry_maCV = "select TenChucVu from ChucVu where MaChucVu = '" + maCV + "'";
+               SqlCommand cmd_ChucVu = new SqlCommand(qry_maCV, con);
+               string ChucVu = (string)cmd_ChucVu.ExecuteScalar();
+
+               cbxChucVu.Text = ChucVu;
+               con.Close();
+               #endregion
           }
      }
 }
