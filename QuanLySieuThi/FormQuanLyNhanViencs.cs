@@ -31,6 +31,23 @@ namespace QuanLySieuThi
                SqlConnection con = new SqlConnection(conString);
                con.Open();
 
+               string qry_SoNV = "SELECT COUNT(*) FROM NhanVien";
+               SqlCommand da_SoNV = new SqlCommand(qry_SoNV, con);
+               int soNV = (int)da_SoNV.ExecuteScalar();
+               groupDSNV.Text = "Danh Sách Nhân Viên: " + soNV + " người";
+
+               string soNV_String = (soNV+1).ToString();
+               string soChuSo_0 = "";
+               for (int i = 0; i < 8-soNV_String.Length; i++)
+               {
+                    soChuSo_0 = soChuSo_0 + "0";
+               }
+
+               string maNV_moi = "NV" + soChuSo_0 + soNV_String;
+
+               txtMaNV.Text = maNV_moi;
+               txtMaNV.Enabled = false;
+
                string qry_DSNV = "SELECT * FROM NhanVien";
                SqlDataAdapter da_DSNV = new SqlDataAdapter(qry_DSNV,con);
 
@@ -68,11 +85,38 @@ namespace QuanLySieuThi
                SqlConnection con = new SqlConnection(conString);
                con.Open();
 
-               
+               #region lấy mã chức vụ
+               if (cbxChucVu.Text == "Quản lý siêu thị")
+               {
+                    maCV = "AD";
+               }
+
+               if (cbxChucVu.Text == "Lao công")
+               {
+                    maCV = "LC";
+               }
+
+               if (cbxChucVu.Text == "Bảo vệ")
+               {
+                    maCV = "SC";
+               }
+
+               if (cbxChucVu.Text == "Quản lý kho")
+               {
+                    maCV = "TK";
+               }
+
+               if (cbxChucVu.Text == "Thu ngân")
+               {
+                    maCV = "TN";
+               }
+               #endregion
 
                string qry_ThemNV = "insert into NhanVien values ('" + txtMaNV.Text + "','" + txtHoTen.Text + "','" + dtpNgaySinh.Value.Day + "','" + txtSDT.Text + "','" + txtSoCMND.Text 
                                    + "','" + txtDiaChi.Text + "','" + arr + "','" + maCV + "','" + txtQueQuan.Text + "','" + gTinh + "')";
-               SqlCommand cmd = new SqlCommand(qry_ThemNV, con);
+               SqlCommand cmd_ThemNV = new SqlCommand(qry_ThemNV, con);
+
+               cmd_ThemNV.ExecuteNonQuery();
 
                con.Close();
           }
