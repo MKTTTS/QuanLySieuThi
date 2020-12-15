@@ -120,6 +120,11 @@
       <DependentUpon>FormXoaMatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="NhanVien.cs" />
+    <Compile Include="NhanVienTable.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NhanVienTable.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDangNhap.resx">
@@ -155,6 +160,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="NhanVienTable.xsc">
+      <DependentUpon>NhanVienTable.xsd</DependentUpon>
+    </None>
+    <None Include="NhanVienTable.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NhanVienTable.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NhanVienTable.xss">
+      <DependentUpon>NhanVienTable.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
