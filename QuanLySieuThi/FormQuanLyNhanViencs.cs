@@ -34,18 +34,46 @@ namespace QuanLySieuThi
 
                #region Mã Nhân Viên Mới
                string qry_SoNV = "SELECT COUNT(*) FROM NhanVien";
-               SqlCommand da_SoNV = new SqlCommand(qry_SoNV, con);
-               soNV = (int)da_SoNV.ExecuteScalar();
+               SqlCommand cmd_SoNV = new SqlCommand(qry_SoNV, con);
+               soNV = (int)cmd_SoNV.ExecuteScalar();
                groupDSNV.Text = "Danh Sách Nhân Viên: " + soNV + " người";
 
-               string soNV_String = (soNV+1).ToString();
+               //string soNV_String = (soNV+1).ToString();
+               //string soChuSo_0 = "";
+               //for (int i = 0; i < 8-soNV_String.Length; i++)
+               //{
+               //     soChuSo_0 = soChuSo_0 + "0";
+               //}
+
+               //string maNV_moi = "NV" + soChuSo_0 + soNV_String;
+
+               string qry_MaNV_cuoi = "SELECT TOP 1 MaNhanVien FROM NhanVien ORDER BY MaNhanVien DESC";
+               SqlCommand cmd_MaNV_cuoi = new SqlCommand(qry_MaNV_cuoi, con);
+               string maNV_cuoi = (string)cmd_MaNV_cuoi.ExecuteScalar();
+
+               #region Cắt lấy mã cuối
+               int viTri = 0;
+               for (int l = 2; l < maNV_cuoi.Length; l++)
+               {
+                    if (maNV_cuoi[l] != '0')
+                    {
+                         viTri = l;
+                         break;
+                    }
+               }
+               int maCuoi = Convert.ToInt32(maNV_cuoi.Substring(viTri));
+               int maMoi = maCuoi + 1;
+
+               string maMoi_string = maMoi.ToString();
                string soChuSo_0 = "";
-               for (int i = 0; i < 8-soNV_String.Length; i++)
+               for (int i = 0; i < 8 - maMoi_string.Length; i++)
                {
                     soChuSo_0 = soChuSo_0 + "0";
                }
 
-               string maNV_moi = "NV" + soChuSo_0 + soNV_String;
+               string maNV_moi = "NV" + soChuSo_0 + maMoi_string;
+
+               #endregion
 
                txtMaNV.Text = maNV_moi;
                txtMaNV.Enabled = false;
@@ -115,13 +143,20 @@ namespace QuanLySieuThi
                }
                #endregion
 
-               string qry_ThemNV = "insert into NhanVien values ('" + txtMaNV.Text + "','" + txtHoTen.Text + "','" + dtpNgaySinh.Value.Day + "','" + txtSDT.Text + "','" + txtSoCMND.Text 
+               string qry_ThemNV = "insert into NhanVien values ('" + txtMaNV.Text + "','" + txtHoTen.Text + "','" + dtpNgaySinh.Value.Date.ToString() + "','" + txtSDT.Text + "','" + txtSoCMND.Text 
                                    + "','" + txtDiaChi.Text + "','" + arr + "','" + maCV + "','" + txtQueQuan.Text + "','" + gTinh + "')";
                SqlCommand cmd_ThemNV = new SqlCommand(qry_ThemNV, con);
 
                cmd_ThemNV.ExecuteNonQuery();
 
                con.Close();
+               txtHoTen.Text = "";
+               txtSDT.Text = "";
+               txtSoCMND.Text = "";
+               cbxChucVu.Text = "";
+               txtQueQuan.Text = "";
+               txtDiaChi.Text = "";
+               FormQuanLyNhanViencs_Load(sender, e);
           }
 
           private void btnSua_Click(object sender, EventArgs e)
@@ -131,25 +166,25 @@ namespace QuanLySieuThi
 
           private void btnXoa_Click(object sender, EventArgs e)
           {
+               SqlConnection con = new SqlConnection(conString);
+               con.Open();
+
                string maXoa_string = txtMaNV.Text;
+
+               string qry_XoaNV = "delete from NhanVien where MaNhanVien = '" + maXoa_string + "'";
+               SqlCommand cmd_XoaNV = new SqlCommand(qry_XoaNV, con);
+
+               string qry_XoaTK = "delete from DangNhap where MaNhanVien = '" + maXoa_string + "'";
+               SqlCommand cmd_XoaTK = new SqlCommand(qry_XoaTK, con);
+
+               cmd_XoaTK.ExecuteNonQuery();
+               cmd_XoaNV.ExecuteNonQuery();
+
                
-               int maXoa = Convert.ToInt32(maXoa_string);
-               for(int i = maXoa+1; i <= soNV; i++)
-               {
-                    int maDay = i; // mã được đẩy lên
-                    string maDay_string = maDay.ToString();
-                    string soChuSo_0 = "";
-                    for (int j = 0; i < 8 - maDay_string.Length; i++)
-                    {
-                         soChuSo_0 = soChuSo_0 + "0";
-                    }
-                    string maDay_full = "NV" + soChuSo_0 + maDay_string;
+               con.Close();
 
-                    int maMoi = maDay - 1;
-                    string maMoi_string = maMoi.ToString();
-                    for
-
-               }
+               FormQuanLyNhanViencs_Load(sender, e);
+              
           }
 
           private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
