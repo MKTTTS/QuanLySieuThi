@@ -63,4 +63,8 @@ E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuTh
 E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CoreCompileInputs.cache
 E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
+<<<<<<< HEAD
 C:\Users\admin\Desktop\Thuctapnhom\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormXoaMatHang.resources
+=======
+E:\Desktop\Thực tập nhóm\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormHetHan.resources
+>>>>>>> Kien
