@@ -216,6 +216,7 @@
             this.buttonNhapHoaDon.TabIndex = 22;
             this.buttonNhapHoaDon.Text = "Hoàn tất";
             this.buttonNhapHoaDon.UseVisualStyleBackColor = true;
+            this.buttonNhapHoaDon.Click += new System.EventHandler(this.buttonNhapHoaDon_Click);
             // 
             // label11
             // 
@@ -535,6 +536,7 @@
             this.buttonInHoaDonNoCard.TabIndex = 22;
             this.buttonInHoaDonNoCard.Text = "Hoàn tất";
             this.buttonInHoaDonNoCard.UseVisualStyleBackColor = true;
+            this.buttonInHoaDonNoCard.Click += new System.EventHandler(this.buttonInHoaDonNoCard_Click);
             // 
             // label12
             // 
