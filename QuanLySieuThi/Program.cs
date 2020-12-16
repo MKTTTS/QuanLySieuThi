@@ -16,8 +16,8 @@ namespace QuanLySieuThi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FormQuanLy());
-               Application.Run(new FormQuanLyNhanViencs());
+            Application.Run(new FormQuanLy());
+              
 
           }
     }

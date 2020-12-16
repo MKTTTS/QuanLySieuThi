@@ -331,5 +331,10 @@ namespace QuanLySieuThi
                con.Close();
                #endregion
           }
+
+          private void txtThoat_Click(object sender, EventArgs e)
+          {
+               this.Close();
+          }
      }
 }

@@ -66,19 +66,19 @@
                this.btnThem = new Guna.UI2.WinForms.Guna2Button();
                this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
                this.dgvDSNV = new Guna.UI2.WinForms.Guna2DataGridView();
-               this.nhanVienTable = new QuanLySieuThi.NhanVienTable();
-               this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-               this.nhanVienTableAdapter = new QuanLySieuThi.NhanVienTableTableAdapters.NhanVienTableAdapter();
-               this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.AnhDaiDien = new System.Windows.Forms.DataGridViewImageColumn();
-               this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.SoCMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-               this.HoTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
                this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.HoTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.SoCMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.AnhDaiDien = new System.Windows.Forms.DataGridViewImageColumn();
+               this.MaChucVu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.QueQuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+               this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+               this.nhanVienTable = new QuanLySieuThi.NhanVienTable();
+               this.nhanVienTableAdapter = new QuanLySieuThi.NhanVienTableTableAdapters.NhanVienTableAdapter();
                this.guna2GroupBox1.SuspendLayout();
                this.guna2CustomGradientPanel1.SuspendLayout();
                this.guna2Panel3.SuspendLayout();
@@ -86,8 +86,8 @@
                this.groupDSNV.SuspendLayout();
                this.guna2Panel1.SuspendLayout();
                ((System.ComponentModel.ISupportInitialize)(this.dgvDSNV)).BeginInit();
-               ((System.ComponentModel.ISupportInitialize)(this.nhanVienTable)).BeginInit();
                ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
+               ((System.ComponentModel.ISupportInitialize)(this.nhanVienTable)).BeginInit();
                this.SuspendLayout();
                // 
                // guna2GroupBox1
@@ -577,6 +577,7 @@
                this.txtThoat.Size = new System.Drawing.Size(96, 32);
                this.txtThoat.TabIndex = 27;
                this.txtThoat.Text = "Thoát";
+               this.txtThoat.Click += new System.EventHandler(this.txtThoat_Click);
                // 
                // btnXoa
                // 
@@ -722,67 +723,11 @@
                this.dgvDSNV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
                this.dgvDSNV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSNV_CellContentClick);
                // 
-               // nhanVienTable
+               // MaNhanVien
                // 
-               this.nhanVienTable.DataSetName = "NhanVienTable";
-               this.nhanVienTable.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-               // 
-               // nhanVienBindingSource
-               // 
-               this.nhanVienBindingSource.DataMember = "NhanVien";
-               this.nhanVienBindingSource.DataSource = this.nhanVienTable;
-               // 
-               // nhanVienTableAdapter
-               // 
-               this.nhanVienTableAdapter.ClearBeforeFill = true;
-               // 
-               // GioiTinh
-               // 
-               this.GioiTinh.DataPropertyName = "GioiTinh";
-               this.GioiTinh.HeaderText = "Giới Tính";
-               this.GioiTinh.Name = "GioiTinh";
-               // 
-               // QueQuan
-               // 
-               this.QueQuan.DataPropertyName = "QueQuan";
-               this.QueQuan.HeaderText = "Quê Quán";
-               this.QueQuan.Name = "QueQuan";
-               // 
-               // MaChucVu
-               // 
-               this.MaChucVu.DataPropertyName = "MaChucVu";
-               this.MaChucVu.HeaderText = "Mã Chức Vụ";
-               this.MaChucVu.Name = "MaChucVu";
-               // 
-               // AnhDaiDien
-               // 
-               this.AnhDaiDien.DataPropertyName = "AnhDaiDien";
-               this.AnhDaiDien.HeaderText = "Ảnh Đại Diện";
-               this.AnhDaiDien.Name = "AnhDaiDien";
-               // 
-               // DiaChi
-               // 
-               this.DiaChi.DataPropertyName = "DiaChi";
-               this.DiaChi.HeaderText = "Địa Chỉ";
-               this.DiaChi.Name = "DiaChi";
-               // 
-               // SoCMND
-               // 
-               this.SoCMND.DataPropertyName = "SoCMND";
-               this.SoCMND.HeaderText = "Số CMND";
-               this.SoCMND.Name = "SoCMND";
-               // 
-               // SDT
-               // 
-               this.SDT.DataPropertyName = "SDT";
-               this.SDT.HeaderText = "SĐT";
-               this.SDT.Name = "SDT";
-               // 
-               // NgaySinh
-               // 
-               this.NgaySinh.DataPropertyName = "NgaySinh";
-               this.NgaySinh.HeaderText = "Ngày Sinh";
-               this.NgaySinh.Name = "NgaySinh";
+               this.MaNhanVien.DataPropertyName = "MaNhanVien";
+               this.MaNhanVien.HeaderText = "Mã Nhân Viên";
+               this.MaNhanVien.Name = "MaNhanVien";
                // 
                // HoTenNhanVien
                // 
@@ -790,11 +735,67 @@
                this.HoTenNhanVien.HeaderText = "Họ Và Tên";
                this.HoTenNhanVien.Name = "HoTenNhanVien";
                // 
-               // MaNhanVien
+               // NgaySinh
                // 
-               this.MaNhanVien.DataPropertyName = "MaNhanVien";
-               this.MaNhanVien.HeaderText = "Mã Nhân Viên";
-               this.MaNhanVien.Name = "MaNhanVien";
+               this.NgaySinh.DataPropertyName = "NgaySinh";
+               this.NgaySinh.HeaderText = "Ngày Sinh";
+               this.NgaySinh.Name = "NgaySinh";
+               // 
+               // SDT
+               // 
+               this.SDT.DataPropertyName = "SDT";
+               this.SDT.HeaderText = "SĐT";
+               this.SDT.Name = "SDT";
+               // 
+               // SoCMND
+               // 
+               this.SoCMND.DataPropertyName = "SoCMND";
+               this.SoCMND.HeaderText = "Số CMND";
+               this.SoCMND.Name = "SoCMND";
+               // 
+               // DiaChi
+               // 
+               this.DiaChi.DataPropertyName = "DiaChi";
+               this.DiaChi.HeaderText = "Địa Chỉ";
+               this.DiaChi.Name = "DiaChi";
+               // 
+               // AnhDaiDien
+               // 
+               this.AnhDaiDien.DataPropertyName = "AnhDaiDien";
+               this.AnhDaiDien.HeaderText = "Ảnh Đại Diện";
+               this.AnhDaiDien.Name = "AnhDaiDien";
+               // 
+               // MaChucVu
+               // 
+               this.MaChucVu.DataPropertyName = "MaChucVu";
+               this.MaChucVu.HeaderText = "Mã Chức Vụ";
+               this.MaChucVu.Name = "MaChucVu";
+               // 
+               // QueQuan
+               // 
+               this.QueQuan.DataPropertyName = "QueQuan";
+               this.QueQuan.HeaderText = "Quê Quán";
+               this.QueQuan.Name = "QueQuan";
+               // 
+               // GioiTinh
+               // 
+               this.GioiTinh.DataPropertyName = "GioiTinh";
+               this.GioiTinh.HeaderText = "Giới Tính";
+               this.GioiTinh.Name = "GioiTinh";
+               // 
+               // nhanVienBindingSource
+               // 
+               this.nhanVienBindingSource.DataMember = "NhanVien";
+               this.nhanVienBindingSource.DataSource = this.nhanVienTable;
+               // 
+               // nhanVienTable
+               // 
+               this.nhanVienTable.DataSetName = "NhanVienTable";
+               this.nhanVienTable.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+               // 
+               // nhanVienTableAdapter
+               // 
+               this.nhanVienTableAdapter.ClearBeforeFill = true;
                // 
                // FormQuanLyNhanViencs
                // 
@@ -818,8 +819,8 @@
                this.groupDSNV.ResumeLayout(false);
                this.guna2Panel1.ResumeLayout(false);
                ((System.ComponentModel.ISupportInitialize)(this.dgvDSNV)).EndInit();
-               ((System.ComponentModel.ISupportInitialize)(this.nhanVienTable)).EndInit();
                ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
+               ((System.ComponentModel.ISupportInitialize)(this.nhanVienTable)).EndInit();
                this.ResumeLayout(false);
 
         }

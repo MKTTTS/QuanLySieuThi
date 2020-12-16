@@ -32,9 +32,7 @@ namespace QuanLySieuThi
         private void btnQuanLyNV_Click(object sender, EventArgs e)
         {
             FormQuanLyNhanViencs form = new FormQuanLyNhanViencs();
-            form.TopLevel = false;
-            panelChildForm.Controls.Add(form);
-            openChildForm(form);
+               form.ShowDialog();
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
