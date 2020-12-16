@@ -53,7 +53,7 @@
             // XuLy_btn
             // 
             this.XuLy_btn.Location = new System.Drawing.Point(349, 7);
-            this.XuLy_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.XuLy_btn.Margin = new System.Windows.Forms.Padding(4);
             this.XuLy_btn.Name = "XuLy_btn";
             this.XuLy_btn.Size = new System.Drawing.Size(100, 28);
             this.XuLy_btn.TabIndex = 0;
@@ -64,7 +64,7 @@
             // DeSau_btn
             // 
             this.DeSau_btn.Location = new System.Drawing.Point(629, 7);
-            this.DeSau_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DeSau_btn.Margin = new System.Windows.Forms.Padding(4);
             this.DeSau_btn.Name = "DeSau_btn";
             this.DeSau_btn.Size = new System.Drawing.Size(157, 28);
             this.DeSau_btn.TabIndex = 1;
@@ -78,7 +78,7 @@
             this.panel1.Controls.Add(this.DeSau_btn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 570);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1125, 43);
             this.panel1.TabIndex = 2;
@@ -88,7 +88,7 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1125, 91);
             this.panel2.TabIndex = 3;
@@ -96,11 +96,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(171, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(725, 41);
+            this.label1.Size = new System.Drawing.Size(685, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "DANH SÁCH HÀNG HẾT HẠN SỬ DỤNG";
             // 
@@ -120,7 +120,7 @@
             this.donViHangHoaDataGridView.DataSource = this.donViHangHoaBindingSource;
             this.donViHangHoaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.donViHangHoaDataGridView.Location = new System.Drawing.Point(0, 91);
-            this.donViHangHoaDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.donViHangHoaDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.donViHangHoaDataGridView.MultiSelect = false;
             this.donViHangHoaDataGridView.Name = "donViHangHoaDataGridView";
             this.donViHangHoaDataGridView.ReadOnly = true;
@@ -214,7 +214,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormHetHan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormHetHan";
