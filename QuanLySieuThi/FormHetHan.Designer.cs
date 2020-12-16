@@ -52,9 +52,10 @@
             // 
             // XuLy_btn
             // 
-            this.XuLy_btn.Location = new System.Drawing.Point(262, 6);
+            this.XuLy_btn.Location = new System.Drawing.Point(349, 7);
+            this.XuLy_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.XuLy_btn.Name = "XuLy_btn";
-            this.XuLy_btn.Size = new System.Drawing.Size(75, 23);
+            this.XuLy_btn.Size = new System.Drawing.Size(100, 28);
             this.XuLy_btn.TabIndex = 0;
             this.XuLy_btn.Text = "XỬ LÝ";
             this.XuLy_btn.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             // 
             // DeSau_btn
             // 
-            this.DeSau_btn.Location = new System.Drawing.Point(472, 6);
+            this.DeSau_btn.Location = new System.Drawing.Point(629, 7);
+            this.DeSau_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.DeSau_btn.Name = "DeSau_btn";
-            this.DeSau_btn.Size = new System.Drawing.Size(118, 23);
+            this.DeSau_btn.Size = new System.Drawing.Size(157, 28);
             this.DeSau_btn.TabIndex = 1;
             this.DeSau_btn.Text = "NHẮC TÔI SAU";
             this.DeSau_btn.UseVisualStyleBackColor = true;
@@ -75,9 +77,10 @@
             this.panel1.Controls.Add(this.XuLy_btn);
             this.panel1.Controls.Add(this.DeSau_btn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 463);
+            this.panel1.Location = new System.Drawing.Point(0, 570);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 35);
+            this.panel1.Size = new System.Drawing.Size(1125, 43);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -85,17 +88,19 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(844, 74);
+            this.panel2.Size = new System.Drawing.Size(1125, 91);
             this.panel2.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(128, 19);
+            this.label1.Location = new System.Drawing.Point(171, 23);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(573, 32);
+            this.label1.Size = new System.Drawing.Size(725, 41);
             this.label1.TabIndex = 0;
             this.label1.Text = "DANH SÁCH HÀNG HẾT HẠN SỬ DỤNG";
             // 
@@ -114,69 +119,87 @@
             this.dataGridViewTextBoxColumn8});
             this.donViHangHoaDataGridView.DataSource = this.donViHangHoaBindingSource;
             this.donViHangHoaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.donViHangHoaDataGridView.Location = new System.Drawing.Point(0, 74);
+            this.donViHangHoaDataGridView.Location = new System.Drawing.Point(0, 91);
+            this.donViHangHoaDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.donViHangHoaDataGridView.MultiSelect = false;
             this.donViHangHoaDataGridView.Name = "donViHangHoaDataGridView";
             this.donViHangHoaDataGridView.ReadOnly = true;
+            this.donViHangHoaDataGridView.RowHeadersWidth = 51;
             this.donViHangHoaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.donViHangHoaDataGridView.Size = new System.Drawing.Size(844, 389);
+            this.donViHangHoaDataGridView.Size = new System.Drawing.Size(1125, 479);
             this.donViHangHoaDataGridView.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "MaMatHang";
             this.dataGridViewTextBoxColumn1.HeaderText = "MaMatHang";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "TenMatHang";
             this.dataGridViewTextBoxColumn2.HeaderText = "TenMatHang";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "TenLoai";
             this.dataGridViewTextBoxColumn3.HeaderText = "TenLoai";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "XuatXu";
             this.dataGridViewTextBoxColumn4.HeaderText = "XuatXu";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.DataPropertyName = "GiaBan";
             this.dataGridViewTextBoxColumn5.HeaderText = "GiaBan";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "NgaySanXuat";
             this.dataGridViewTextBoxColumn6.HeaderText = "NgaySanXuat";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.DataPropertyName = "HanSuDung";
             this.dataGridViewTextBoxColumn7.HeaderText = "HanSuDung";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "SoLuongHetHan";
             this.dataGridViewTextBoxColumn8.HeaderText = "SoLuongHetHan";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 125;
             // 
             // donViHangHoaBindingSource
             // 
@@ -184,13 +207,14 @@
             // 
             // FormHetHan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 498);
+            this.ClientSize = new System.Drawing.Size(1125, 613);
             this.Controls.Add(this.donViHangHoaDataGridView);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormHetHan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormHetHan";

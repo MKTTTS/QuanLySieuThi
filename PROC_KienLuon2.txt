@@ -1,0 +1,39 @@
+USE [QuanLySieuThi]
+
+go
+
+CREATE proc [dbo].[PROC_LoadHangHetHan]
+as
+begin
+	select dvhh.MaMatHang, mh.TenMatHang, lmh.TenLoai, mh.XuatXu, mh.GiaBan, dvhh.NgaySanXuat, dvhh.HanSuDung, count(*) as SoLuongHetHan
+	from DonViHangHoa as dvhh join MatHang as mh on dvhh.MaMatHang = mh.MaMatHang
+		join LoaiMatHang as lmh on mh.MaLoai = lmh.MaLoai
+	where dvhh.HanSuDung < CONVERT(DATE, GETDATE())
+	group by dvhh.MaMatHang, mh.TenMatHang, lmh.TenLoai, mh.XuatXu, mh.GiaBan, dvhh.NgaySanXuat, dvhh.HanSuDung
+	order by dvhh.MaMatHang
+end
+
+go
+
+CREATE proc [dbo].[PROC_XoaMatHang] 
+(
+	@MaMatHang varchar(10),
+	@NgaySanXuat date,
+	@HanSuDung date = NULL
+)
+as
+begin
+	if @HanSuDung is NULL
+		DELETE FROM DonViHangHoa WHERE MaMatHang = @MaMatHang and NgaySanXuat = @NgaySanXuat
+	else
+		DELETE FROM DonViHangHoa WHERE MaMatHang = @MaMatHang and NgaySanXuat = @NgaySanXuat and HanSuDung = @HanSuDung 
+end
+
+GO
+ALTER TRIGGER [dbo].[DELETEDONVIHANGHOA] ON [dbo].[DonViHangHoa] FOR DELETE
+AS
+BEGIN
+	UPDATE MatHang SET MatHang.Soluong = MatHang.Soluong - 1 WHERE MatHang.MaMatHang = (SELECT distinct MaMatHang   FROM deleted)
+END
+
+go
