@@ -15,7 +15,9 @@ namespace QuanLySieuThi
         private Form activeForm = null;
         public FormQuanLy()
         {
+            
             InitializeComponent();
+            this.panel1.Visible = false;
         }
         private void openChildForm(Form childForm)
         {
@@ -31,10 +33,8 @@ namespace QuanLySieuThi
         }
         private void btnQuanLyNV_Click(object sender, EventArgs e)
         {
-            FormQuanLyNhanViencs form = new FormQuanLyNhanViencs();
-            form.TopLevel = false;
-            panelChildForm.Controls.Add(form);
-            openChildForm(form);
+            bool r = this.panel1.Visible;
+            this.panel1.Visible = !r;
         }
 
         private void btnKhachHang_Click(object sender, EventArgs e)
@@ -59,6 +59,28 @@ namespace QuanLySieuThi
             form.TopLevel = false;
             panelChildForm.Controls.Add(form);
             openChildForm(form);
+        }
+
+        private void FormQuanLy_Load(object sender, EventArgs e)
+        {
+            this.Location = new Point(0, 0);
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            
+        }
+
+        private void btnHangHoa_Click_1(object sender, EventArgs e)
+        {
+            FormQuanLyMatHang f = new FormQuanLyMatHang();
+            //f.Dock = System.Windows.Forms.DockStyle.Fill;
+            f.TopLevel = false;
+            panelChildForm.Controls.Add(f);
+            openChildForm(f);
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            FormQuanLyNhanViencs f = new FormQuanLyNhanViencs();
+            f.ShowDialog();
         }
     }
 }

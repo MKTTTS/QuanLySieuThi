@@ -95,7 +95,7 @@ namespace QuanLySieuThi
                     this.textBoxGiabanMH.Text = r["GiaBan"].ToString();
                     this.buttonHuyMH.Enabled = true;
                     this.buttonSuaMH.Enabled = true;
-                    this.buttonXoaMH.Enabled = true;
+                    
                 }
             }
         }
@@ -206,7 +206,7 @@ namespace QuanLySieuThi
             Lock(true);
             this.buttonHuyMH.Enabled = false;
             this.buttonSuaMH.Enabled = false;
-            this.buttonXoaMH.Enabled = false;
+            
             this.dataGridView2.DataSource = null;
         }
         public void LoadMatHang()
@@ -251,7 +251,7 @@ namespace QuanLySieuThi
             if(this.buttonSuaMH.Text == "SỬA")
             {
                 Lock(false);
-                this.buttonXoaMH.Enabled = false;
+                
                 this.buttonSuaMH.Text = "LƯU";
                 this.panel2.Enabled = false;
             }
@@ -304,7 +304,7 @@ namespace QuanLySieuThi
                 LoadMatHang();
                 Lock(true);
                 this.buttonSuaMH.Enabled = false;
-                this.buttonXoaMH.Enabled = false;
+                
                 this.buttonHuyMH.Enabled = false;
 
             }
@@ -315,7 +315,7 @@ namespace QuanLySieuThi
             this.panel2.Enabled = true;
             Lock(true);
             this.buttonSuaMH.Enabled = false;
-            this.buttonXoaMH.Enabled = false;
+            
             this.buttonHuyMH.Enabled = false;
             this.buttonSuaMH.Text = "SỬA";
             this.buttonThemMH.Text = "THÊM";
@@ -347,7 +347,6 @@ namespace QuanLySieuThi
                 this.comboBoxThemMH.Enabled = true;
                 this.buttonHuyMH.Enabled = true;
                 this.buttonSuaMH.Enabled = false;
-                this.buttonXoaMH.Enabled = false;
             }
             else
             {
@@ -402,7 +401,7 @@ namespace QuanLySieuThi
                     Lock(true);
                     this.comboBoxThemMH.Enabled = false;
                     this.buttonSuaMH.Enabled = false;
-                    this.buttonXoaMH.Enabled = false;
+                    
                     this.buttonHuyMH.Enabled = true;
                     this.button3.Enabled = true;
                     this.textBoxTimkiemMatHang.Enabled = true;
@@ -479,19 +478,11 @@ namespace QuanLySieuThi
             }
         }
 
-        private void buttonXoaMH_Click(object sender, EventArgs e)
+
+        
+        private void label12_Click(object sender, EventArgs e)
         {
-            if(this.textBoxSoLuongMH.Text != "0")
-            {
-                MessageBox.Show("Không thể xóa do vẫn còn hàng");
-                return;
-            }
-            else
-            {
-                string s = this.textBoxMaMH.Text;
-                FormXoaMatHang f = new FormXoaMatHang(s);
-                f.ShowDialog();
-            }
+            this.Dispose();
         }
     }
 }

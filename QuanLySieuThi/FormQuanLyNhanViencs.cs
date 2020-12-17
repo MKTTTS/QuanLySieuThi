@@ -110,12 +110,33 @@ namespace QuanLySieuThi
 
                con.Close();
           }
+        public bool CheckCMND(string s)
+        {
+            bool result = true;
+            if(s.Length != 9 && s.Length != 12)
+            {
+               
+                return false;
+            }
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+            string sql = "SELECT CASE  WHEN EXISTS (SELECT * FROM NhanVien WHERE SoCMND = '"+s+"') THEN 1 ELSE 0 END";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            var r = cmd.ExecuteScalar().ToString();
+            if (r == "1")
+            {
+                result = false;
+            }
+            con.Close();
+            return result;
+        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (this.btnThem.Text == "Thêm")
             {
                 Mode(false);
+                this.dgvDSNV.Enabled = false;
                 this.txtHoTen.Text = "";
                 this.dtpNgaySinh.Text = DateTime.Now.ToString();
 
@@ -179,16 +200,21 @@ namespace QuanLySieuThi
                 this.btnSua.Enabled = false;
                 this.btnXoa.Enabled = false;
                 this.txtThoat.Text = "Hủy";
+                pbAnh.Image = null;
             }
             else
             {
+                if (!CheckCMND(this.txtSoCMND.Text))
+                {
+                    MessageBox.Show("Số CMND không hợp lệ");
+                    return;
+                }
                 Image img = pbAnh.Image;
                 byte[] arr;
                 ImageConverter converter = new ImageConverter();
                 arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
-                SqlConnection con = new SqlConnection(conString);
-                con.Open();
+                
 
                 #region lấy mã chức vụ
                 if (cbxChucVu.Text == "Quản lý siêu thị")
@@ -220,6 +246,8 @@ namespace QuanLySieuThi
                 //string qry_ThemNV = "insert into NhanVien values ('" + txtMaNV.Text + "','" + txtHoTen.Text + "','" + dtpNgaySinh.Value.Date.ToString() + "','" + txtSDT.Text + "','" + txtSoCMND.Text 
                 //                    + "','" + txtDiaChi.Text + "','" + arr + "','" + maCV + "','" + txtQueQuan.Text + "','" + gTinh + "')";
                 //SqlCommand cmd_ThemNV = new SqlCommand(qry_ThemNV, con);
+                /*SqlConnection con = new SqlConnection(conString);
+                con.Open();
 
                 string qry_Them = "insert into NhanVien values(@MaNV,@HoTen,@NgaySinh,@SDT,@SoCMND,@DiaChi,@Anh,@MaChucVu,@QueQuan,@GioiTinh)";
                 SqlCommand cmd_Them = new SqlCommand(qry_Them, con);
@@ -239,7 +267,9 @@ namespace QuanLySieuThi
 
                 //cmd_ThemNV.ExecuteNonQuery();
 
-                con.Close();
+                con.Close();*/
+                FromThemNhanVien f = new FromThemNhanVien(txtMaNV.Text, txtHoTen.Text, dtpNgaySinh.Value.Date.ToString(), txtSDT.Text, txtSoCMND.Text, txtDiaChi.Text, arr, maCV, txtQueQuan.Text, gTinh);
+                f.ShowDialog();
                 txtHoTen.Text = "";
                 txtSDT.Text = "";
                 txtSoCMND.Text = "";
@@ -252,6 +282,8 @@ namespace QuanLySieuThi
                 this.btnXoa.Enabled = true;
                 this.txtThoat.Text = "Thoát";
                 this.btnThem.Text = "Thêm";
+                this.dgvDSNV.Enabled = true;
+                this.txtMaNV.Text = "";
                 FormQuanLyNhanViencs_Load(sender, e);
             }
           }
@@ -273,94 +305,133 @@ namespace QuanLySieuThi
 
           private void btnSua_Click(object sender, EventArgs e)
           {
-               Image img = pbAnh.Image;
-               byte[] arr;
-               ImageConverter converter = new ImageConverter();
-               arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
+            if (this.btnSua.Text == "Sửa")
+            {
+                Mode(false);
+                this.txtSoCMND.ReadOnly = true;
+                this.btnSua.Text = "Lưu";
+                this.btnThem.Enabled = false;
+                this.btnXoa.Enabled = false;
+                this.txtThoat.Text = "Hủy";
+                this.dgvDSNV.Enabled = false;
+            }
+            else
+            {
+                Image img = pbAnh.Image;
+                byte[] arr;
+                ImageConverter converter = new ImageConverter();
+                arr = (byte[])converter.ConvertTo(img, typeof(byte[]));
 
-               SqlConnection con = new SqlConnection(conString);
-               con.Open();
-               #region lấy mã chức vụ
-               if (cbxChucVu.Text == "Quản lý siêu thị")
-               {
+                SqlConnection con = new SqlConnection(conString);
+                con.Open();
+                #region lấy mã chức vụ
+                if (cbxChucVu.Text == "Quản lý siêu thị")
+                {
                     maCV = "AD";
-               }
+                }
 
-               if (cbxChucVu.Text == "Lao công")
-               {
+                if (cbxChucVu.Text == "Lao công")
+                {
                     maCV = "LC";
-               }
+                }
 
-               if (cbxChucVu.Text == "Bảo vệ")
-               {
+                if (cbxChucVu.Text == "Bảo vệ")
+                {
                     maCV = "SC";
-               }
+                }
 
-               if (cbxChucVu.Text == "Quản lý kho")
-               {
+                if (cbxChucVu.Text == "Quản lý kho")
+                {
                     maCV = "TK";
-               }
+                }
 
-               if (cbxChucVu.Text == "Thu ngân")
-               {
+                if (cbxChucVu.Text == "Thu ngân")
+                {
                     maCV = "TN";
-               }
-               #endregion
+                }
+                #endregion
 
-               //@MaNV,@HoTen,@NgaySinh,@SDT,@SoCMND,@DiaChi,@Anh,@MaChucVu,@QueQuan,@GioiTinh
-               string qry_Sua = "update NhanVien set HoTenNhanVien = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SDT = @SDT, SoCMND = @SoCMND, MaChucVu = @MaChucVu, QueQuan = @QueQuan, DiaChi = @DiaChi, AnhDaiDien = @Anh where MaNhanVien = '" + txtMaNV.Text + "'";
-               SqlCommand cmd_Sua = new SqlCommand(qry_Sua, con);
+                //@MaNV,@HoTen,@NgaySinh,@SDT,@SoCMND,@DiaChi,@Anh,@MaChucVu,@QueQuan,@GioiTinh
+                string qry_Sua = "update NhanVien set HoTenNhanVien = @HoTen, NgaySinh = @NgaySinh, GioiTinh = @GioiTinh, SDT = @SDT, SoCMND = @SoCMND, MaChucVu = @MaChucVu, QueQuan = @QueQuan, DiaChi = @DiaChi, AnhDaiDien = @Anh where MaNhanVien = '" + txtMaNV.Text + "'";
+                SqlCommand cmd_Sua = new SqlCommand(qry_Sua, con);
 
-               cmd_Sua.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
-               cmd_Sua.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value.Date.ToString());
-               cmd_Sua.Parameters.AddWithValue("@SDT", txtSDT.Text);
-               cmd_Sua.Parameters.AddWithValue("@SoCMND", txtSoCMND.Text);
-               cmd_Sua.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
-               cmd_Sua.Parameters.AddWithValue("@Anh", arr);
-               cmd_Sua.Parameters.AddWithValue("@MaChucVu", maCV);
-               cmd_Sua.Parameters.AddWithValue("@QueQuan", txtQueQuan.Text);
-               cmd_Sua.Parameters.AddWithValue("@GioiTinh", gTinh);
-               cmd_Sua.ExecuteNonQuery();
+                cmd_Sua.Parameters.AddWithValue("@HoTen", txtHoTen.Text);
+                cmd_Sua.Parameters.AddWithValue("@NgaySinh", dtpNgaySinh.Value.Date.ToString());
+                cmd_Sua.Parameters.AddWithValue("@SDT", txtSDT.Text);
+                cmd_Sua.Parameters.AddWithValue("@SoCMND", txtSoCMND.Text);
+                cmd_Sua.Parameters.AddWithValue("@DiaChi", txtDiaChi.Text);
+                cmd_Sua.Parameters.AddWithValue("@Anh", arr);
+                cmd_Sua.Parameters.AddWithValue("@MaChucVu", maCV);
+                cmd_Sua.Parameters.AddWithValue("@QueQuan", txtQueQuan.Text);
+                cmd_Sua.Parameters.AddWithValue("@GioiTinh", gTinh);
+                var r = cmd_Sua.ExecuteNonQuery();
+                if(r >= 1)
+                {
+                    MessageBox.Show("Sửa thông tin nhân viên thành công");
+                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thông tin nhân viên thất bại");
+                    con.Close();
+                }
 
-               con.Close();
+                
 
-               txtHoTen.Text = "";
-               txtSDT.Text = "";
-               txtSoCMND.Text = "";
-               cbxChucVu.Text = "";
-               txtQueQuan.Text = "";
-               txtDiaChi.Text = "";
-               pbAnh.Image = null;
-               FormQuanLyNhanViencs_Load(sender, e);
+                txtHoTen.Text = "";
+                txtSDT.Text = "";
+                txtSoCMND.Text = "";
+                cbxChucVu.Text = "";
+                txtQueQuan.Text = "";
+                txtDiaChi.Text = "";
+                pbAnh.Image = null;
+                Mode(true);
+                
+                this.btnSua.Text = "Sửa";
+                this.btnThem.Enabled = true;
+                this.btnXoa.Enabled = true;
+                this.txtThoat.Text = "Thoát";
+                this.dgvDSNV.Enabled = true;
+                this.pbAnh.Image = null;
+                this.txtMaNV.Text = "";
+                FormQuanLyNhanViencs_Load(sender, e);
+            }
           }
 
           private void btnXoa_Click(object sender, EventArgs e)
           {
-               SqlConnection con = new SqlConnection(conString);
-               con.Open();
+            if (this.txtMaNV.Text != "")
+            {
+                string maXoa_string = txtMaNV.Text;
+                string HoTen = txtHoTen.Text;
+                /*SqlConnection con = new SqlConnection(conString);
+                con.Open();
 
-               string maXoa_string = txtMaNV.Text;
+                
 
-               string qry_XoaNV = "delete from NhanVien where MaNhanVien = '" + maXoa_string + "'";
-               SqlCommand cmd_XoaNV = new SqlCommand(qry_XoaNV, con);
+                string qry_XoaNV = "delete from NhanVien where MaNhanVien = '" + maXoa_string + "'";
+                SqlCommand cmd_XoaNV = new SqlCommand(qry_XoaNV, con);
 
-               string qry_XoaTK = "delete from DangNhap where MaNhanVien = '" + maXoa_string + "'";
-               SqlCommand cmd_XoaTK = new SqlCommand(qry_XoaTK, con);
+                string qry_XoaTK = "delete from DangNhap where MaNhanVien = '" + maXoa_string + "'";
+                SqlCommand cmd_XoaTK = new SqlCommand(qry_XoaTK, con);
 
-               cmd_XoaTK.ExecuteNonQuery();
-               cmd_XoaNV.ExecuteNonQuery();
+                cmd_XoaTK.ExecuteNonQuery();
+                cmd_XoaNV.ExecuteNonQuery();
 
 
-               con.Close();
-               txtHoTen.Text = "";
-               txtSDT.Text = "";
-               txtSoCMND.Text = "";
-               cbxChucVu.Text = "";
-               txtQueQuan.Text = "";
-               txtDiaChi.Text = "";
-               pbAnh.Image = null;
+                con.Close();*/
+                FormXoaNhanVien f = new FormXoaNhanVien(maXoa_string, HoTen);
+                f.ShowDialog();
+                txtHoTen.Text = "";
+                txtSDT.Text = "";
+                txtSoCMND.Text = "";
+                cbxChucVu.Text = "";
+                txtQueQuan.Text = "";
+                txtDiaChi.Text = "";
+                pbAnh.Image = null;
 
-               FormQuanLyNhanViencs_Load(sender, e);
+                FormQuanLyNhanViencs_Load(sender, e);
+            }
           }
 
           private void txtSoCMND_KeyPress(object sender, KeyPressEventArgs e)
@@ -401,7 +472,15 @@ namespace QuanLySieuThi
             else
             {
                 this.guna2Panel1.Enabled = true;
-                this.guna2GroupBox1.Enabled = false;
+                //this.guna2GroupBox1.Enabled = false;
+                Mode(true);
+                this.txtHoTen.Text = "";
+                this.txtDiaChi.Text = "";
+                this.txtQueQuan.Text = "";
+                this.dtpNgaySinh.Text = DateTime.Now.ToString();
+                this.txtSoCMND.Text = "";
+                this.txtSDT.Text = "";
+                this.cbxChucVu.Text = "";
                 this.txtThoat.Text = "Thoát";
                 this.btnThem.Text = "Thêm";
                 this.btnThem.Enabled = true;
@@ -409,6 +488,9 @@ namespace QuanLySieuThi
                 this.btnSua.Enabled = true;
                 this.btnXoa.Text = "Xóa";
                 this.btnXoa.Enabled = true;
+                this.dgvDSNV.Enabled = true;
+                this.pbAnh.Image = null;
+                this.txtMaNV.Text = "";
 
             }
           }

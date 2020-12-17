@@ -107,11 +107,17 @@
     <Compile Include="FormThuNgan.Designer.cs">
       <DependentUpon>FormThuNgan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormXoaMatHang.cs">
+    <Compile Include="FormXoaNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormXoaMatHang.Designer.cs">
-      <DependentUpon>FormXoaMatHang.cs</DependentUpon>
+    <Compile Include="FormXoaNhanVien.Designer.cs">
+      <DependentUpon>FormXoaNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromThemNhanVien.Designer.cs">
+      <DependentUpon>FromThemNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="nhanVien.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -144,8 +150,8 @@
     <EmbeddedResource Include="FormThongKeDoanhSo.resx">
       <DependentUpon>FormThongKeDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormXoaMatHang.resx">
-      <DependentUpon>FormXoaMatHang.cs</DependentUpon>
+    <EmbeddedResource Include="FromThemNhanVien.resx">
+      <DependentUpon>FromThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
