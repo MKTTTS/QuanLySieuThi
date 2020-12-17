@@ -1,2 +1,2 @@
 # QuanLySieuThi
-làm nhanh c** lên
+làm nhanh lên
