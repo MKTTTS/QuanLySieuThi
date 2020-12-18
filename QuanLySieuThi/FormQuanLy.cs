@@ -82,5 +82,14 @@ namespace QuanLySieuThi
             FormQuanLyNhanViencs f = new FormQuanLyNhanViencs();
             f.ShowDialog();
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            FormQuanLyDangNhapNV f = new FormQuanLyDangNhapNV();
+            //f.Dock = System.Windows.Forms.DockStyle.Fill;
+            f.TopLevel = false;
+            panelChildForm.Controls.Add(f);
+            openChildForm(f);
+        }
     }
 }

@@ -51,6 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerParameter.cs" />
+    <Compile Include="dangNhap.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dangNhap.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseQLST.cs" />
     <Compile Include="DonViHangHoa.cs" />
     <Compile Include="FormHetHan.cs">
@@ -76,6 +81,12 @@
     </Compile>
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormQuanLyDangNhapNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormQuanLyDangNhapNV.Designer.cs">
+      <DependentUpon>FormQuanLyDangNhapNV.cs</DependentUpon>
     </Compile>
     <Compile Include="FormQuanLyKho.cs">
       <SubType>Form</SubType>
@@ -138,6 +149,9 @@
     <EmbeddedResource Include="FormQuanLy.resx">
       <DependentUpon>FormQuanLy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormQuanLyDangNhapNV.resx">
+      <DependentUpon>FormQuanLyDangNhapNV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormQuanLyKho.resx">
       <DependentUpon>FormQuanLyKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +176,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="dangNhap.xsc">
+      <DependentUpon>dangNhap.xsd</DependentUpon>
+    </None>
+    <None Include="dangNhap.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dangNhap.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dangNhap.xss">
+      <DependentUpon>dangNhap.xsd</DependentUpon>
+    </None>
     <None Include="nhanVien.xsc">
       <DependentUpon>nhanVien.xsd</DependentUpon>
     </None>

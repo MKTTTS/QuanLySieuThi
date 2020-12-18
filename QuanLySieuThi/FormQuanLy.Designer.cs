@@ -179,6 +179,7 @@
             this.guna2Button2.TabIndex = 1;
             this.guna2Button2.Text = "      Quản lý đăng nhập nhân viên";
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // guna2Button1
             // 

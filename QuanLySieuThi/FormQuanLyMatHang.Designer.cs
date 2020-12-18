@@ -114,6 +114,7 @@
             // 
             // panelThongTinLMH
             // 
+            this.panelThongTinLMH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelThongTinLMH.Controls.Add(this.label3);
             this.panelThongTinLMH.Controls.Add(this.label2);
             this.panelThongTinLMH.Controls.Add(this.textBoxSoLuongMoiLoai);
@@ -190,6 +191,7 @@
             // 
             // panelTimkiemLMH
             // 
+            this.panelTimkiemLMH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelTimkiemLMH.Controls.Add(this.label4);
             this.panelTimkiemLMH.Controls.Add(this.button1);
             this.panelTimkiemLMH.Controls.Add(this.buttonThemLMH);
@@ -257,7 +259,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(769, 469);
+            this.dataGridView1.Size = new System.Drawing.Size(767, 469);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -300,6 +302,7 @@
             // 
             // panel4
             // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.comboBoxThemMH);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.textBoxMaMH);
@@ -460,6 +463,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.buttonThemMH);
             this.panel2.Controls.Add(this.dataGridView2);
             this.panel2.Controls.Add(this.textBoxTimkiemMatHang);
@@ -487,7 +491,8 @@
             // dataGridView2
             // 
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ColumnHeadersHeight = 29;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView2.Location = new System.Drawing.Point(5, 108);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.MultiSelect = false;

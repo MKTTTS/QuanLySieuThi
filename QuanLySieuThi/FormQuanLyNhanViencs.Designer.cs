@@ -48,13 +48,6 @@
             this.checkNam = new Guna.UI2.WinForms.Guna2CustomCheckBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvDSNV = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nhanVien = new QuanLySieuThi.nhanVien();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pbAnh = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -73,16 +66,23 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtMaNV = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.nhanVien = new QuanLySieuThi.nhanVien();
+            this.nhanVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nhanVienTableAdapter = new QuanLySieuThi.nhanVienTableAdapters.NhanVienTableAdapter();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVien)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             this.groupDSNV.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -337,7 +337,6 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDSNV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDSNV.AutoGenerateColumns = false;
             this.dgvDSNV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSNV.BackgroundColor = System.Drawing.Color.White;
             this.dgvDSNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -347,7 +346,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDSNV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -358,7 +357,6 @@
             this.NgaySinh,
             this.SDT,
             this.GioiTinh});
-            this.dgvDSNV.DataSource = this.nhanVienBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold);
@@ -402,56 +400,6 @@
             this.dgvDSNV.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDSNV.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvDSNV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSNV_CellClick);
-            // 
-            // MaNhanVien
-            // 
-            this.MaNhanVien.DataPropertyName = "MaNhanVien";
-            this.MaNhanVien.HeaderText = "Mã Nhân Viên";
-            this.MaNhanVien.MinimumWidth = 6;
-            this.MaNhanVien.Name = "MaNhanVien";
-            this.MaNhanVien.ReadOnly = true;
-            // 
-            // HoTenNhanVien
-            // 
-            this.HoTenNhanVien.DataPropertyName = "HoTenNhanVien";
-            this.HoTenNhanVien.HeaderText = "Họ Và Tên";
-            this.HoTenNhanVien.MinimumWidth = 6;
-            this.HoTenNhanVien.Name = "HoTenNhanVien";
-            this.HoTenNhanVien.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.DataPropertyName = "NgaySinh";
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.MinimumWidth = 6;
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            // 
-            // SDT
-            // 
-            this.SDT.DataPropertyName = "SDT";
-            this.SDT.HeaderText = "SĐT";
-            this.SDT.MinimumWidth = 6;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.DataPropertyName = "GioiTinh";
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.MinimumWidth = 6;
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // nhanVienBindingSource
-            // 
-            this.nhanVienBindingSource.DataMember = "NhanVien";
-            this.nhanVienBindingSource.DataSource = this.nhanVien;
-            // 
-            // nhanVien
-            // 
-            this.nhanVien.DataSetName = "nhanVien";
-            this.nhanVien.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dtpNgaySinh
             // 
@@ -803,6 +751,56 @@
             this.guna2GroupBox1.TabIndex = 33;
             this.guna2GroupBox1.Text = "Thông Tin Nhân Viên";
             // 
+            // nhanVien
+            // 
+            this.nhanVien.DataSetName = "nhanVien";
+            this.nhanVien.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nhanVienBindingSource
+            // 
+            this.nhanVienBindingSource.DataMember = "NhanVien";
+            this.nhanVienBindingSource.DataSource = this.nhanVien;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.DataPropertyName = "GioiTinh";
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.MinimumWidth = 6;
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // SDT
+            // 
+            this.SDT.DataPropertyName = "SDT";
+            this.SDT.HeaderText = "SĐT";
+            this.SDT.MinimumWidth = 6;
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.DataPropertyName = "NgaySinh";
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.MinimumWidth = 6;
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // HoTenNhanVien
+            // 
+            this.HoTenNhanVien.DataPropertyName = "HoTenNhanVien";
+            this.HoTenNhanVien.HeaderText = "Họ Và Tên";
+            this.HoTenNhanVien.MinimumWidth = 6;
+            this.HoTenNhanVien.Name = "HoTenNhanVien";
+            this.HoTenNhanVien.ReadOnly = true;
+            // 
+            // MaNhanVien
+            // 
+            this.MaNhanVien.DataPropertyName = "MaNhanVien";
+            this.MaNhanVien.HeaderText = "Mã Nhân Viên";
+            this.MaNhanVien.MinimumWidth = 6;
+            this.MaNhanVien.Name = "MaNhanVien";
+            this.MaNhanVien.ReadOnly = true;
+            // 
             // nhanVienTableAdapter
             // 
             this.nhanVienTableAdapter.ClearBeforeFill = true;
@@ -823,13 +821,13 @@
             this.guna2CustomGradientPanel1.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nhanVien)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
             this.groupDSNV.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nhanVienBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -870,13 +868,13 @@
           private System.Windows.Forms.Label label2;
           private Guna.UI2.WinForms.Guna2TextBox txtMaNV;
           private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-          private nhanVien nhanVien;
-          private System.Windows.Forms.BindingSource nhanVienBindingSource;
-          private nhanVienTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTenNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private nhanVien nhanVien;
+        private System.Windows.Forms.BindingSource nhanVienBindingSource;
+        private nhanVienTableAdapters.NhanVienTableAdapter nhanVienTableAdapter;
     }
 }

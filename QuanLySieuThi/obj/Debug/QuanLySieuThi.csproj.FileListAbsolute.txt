@@ -76,3 +76,4 @@ C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\Quan
 C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CopyComplete
 C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
+C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLyDangNhapNV.resources
