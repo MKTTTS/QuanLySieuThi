@@ -40,9 +40,17 @@ namespace QuanLySieuThi
 
         private void FormQuanLyKho_Load(object sender, EventArgs e)
         {
-            //this.Location = new Point(0, 0);
-            //this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = new Point(0, 0);
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            string sql = "SELECT (CASE WHEN EXISTS(SELECT * FROM DonViHangHoa WHERE DATEDIFF(Day, getdate(), HanSuDung) <= 0 and HanSuDung is not null) THEN 1 ELSE 0 END ) AS HetHan";
+            var r = new DatabaseQLST().Select(sql);
+            if (r["HetHan"].ToString() == "1")
+            {
+                FormHetHan f = new FormHetHan();
+                f.ShowDialog();
+            }
             VietPhieu(false);
+
         }
         public void LoadMatHang()
         {
@@ -270,6 +278,28 @@ namespace QuanLySieuThi
                     return;
                 }
             }
+            bool check = true;
+            string S = this.textBoxGiaNhap.Text;
+            if (string.IsNullOrEmpty(S))
+            {
+                MessageBox.Show("Chưa có giá nhập");
+                this.textBoxGiaNhap.Select();
+                return;
+            }
+            foreach(Char c in S)
+            {
+                if (!Char.IsDigit(c))
+                {
+                    check = false;
+                }
+            }
+            if(check == false)
+            {
+                MessageBox.Show("Giá nhập không hợp lệ");
+                this.textBoxGiaNhap.Select();
+                return;
+            }
+            int m = Int32.Parse(S);
             string s = this.textBoxSoLuongLo.Text;
             int n;
             try
@@ -302,11 +332,11 @@ namespace QuanLySieuThi
             SqlDataAdapter da;
             if(this.checkBox1.Checked)
             {
-                da = new SqlDataAdapter("SELECT MatHang.TenMatHang as N'Tên mặt hàng', '" + n + "' as N'Số lượng', '" + n + "'*MatHang.GiaBan as N'Giá lô hàng', '" + nsx + "' as N'Ngày sản xuất', '"+hsd+"' as N'Hạn sử dụng' FROM MatHang WHERE MatHang.MaMatHang = '" + mmh + "'", sqlCon);
+                da = new SqlDataAdapter("SELECT MatHang.TenMatHang as N'Tên mặt hàng', '" + n + "' as N'Số lượng', '" + n*m + "' as N'Giá lô hàng', '" + nsx + "' as N'Ngày sản xuất', '"+hsd+"' as N'Hạn sử dụng' FROM MatHang WHERE MatHang.MaMatHang = '" + mmh + "'", sqlCon);
             }
             else
             {
-                da = new SqlDataAdapter("SELECT MatHang.TenMatHang as N'Tên mặt hàng', '" + n + "' as N'Số lượng', '" + n + "'*MatHang.GiaBan as N'Giá lô hàng', '" + nsx + "' as N'Ngày sản xuất', N'Không' as N'Hạn sử dụng' FROM MatHang WHERE MatHang.MaMatHang = '" + mmh + "'", sqlCon);
+                da = new SqlDataAdapter("SELECT MatHang.TenMatHang as N'Tên mặt hàng', '" + n + "' as N'Số lượng', '" + n*m + "' as N'Giá lô hàng', '" + nsx + "' as N'Ngày sản xuất', N'Không' as N'Hạn sử dụng' FROM MatHang WHERE MatHang.MaMatHang = '" + mmh + "'", sqlCon);
             }
             if (da == null)
             {
