@@ -1,0 +1,20 @@
+CREATE PROC ChiTietPhieuNhap
+@maphieunhap nvarchar(7)
+AS
+BEGIN
+SELECT TenMatHang as N'Tên mặt hàng', 
+CONVERT(varchar(10), NgaySanXuat, 103) as N'Ngày sản xuất', 
+(CASE WHEN HanSuDung is null THEN N'Không' ELSE CONVERT(varchar(10), HanSuDung, 103) END) as N'Hạn sử dụng',
+TongGia as 'Giá nhập'
+FROM PhieuNhap_ChiTiet JOIN MatHang ON PhieuNhap_ChiTiet.MaMatHang = MatHang.MaMatHang WHERE PhieuNhap_ChiTiet.MaphieuNhap = @maphieunhap
+END
+GO
+CREATE PROC ChiTietHoaDon
+@mahoadon varchar(20)
+AS
+BEGIN
+SELECT TenMatHang as N'Tên mặt hàng', 
+HoaDon_MatHang.Soluong as 'Số lượng',
+ThanhTien as 'Thành tiền'
+FROM HoaDon_MatHang JOIN MatHang ON HoaDon_MatHang.MaMatHang = MatHang.MaMatHang WHERE HoaDon_MatHang.MaHoaDon = @mahoadon
+END

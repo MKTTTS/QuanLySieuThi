@@ -111,6 +111,7 @@
             this.btnDoanhSo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDoanhSo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDoanhSo.UseVisualStyleBackColor = true;
+            this.btnDoanhSo.Click += new System.EventHandler(this.btnDoanhSo_Click);
             // 
             // btnHangHoa
             // 

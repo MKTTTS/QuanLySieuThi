@@ -98,3 +98,24 @@ C:\Users\mjnkc\Desktop\New folder\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySi
 C:\Users\mjnkc\Desktop\New folder\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CopyComplete
 C:\Users\mjnkc\Desktop\New folder\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 C:\Users\mjnkc\Desktop\New folder\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\bin\Debug\QuanLySieuThi.exe.config
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\bin\Debug\QuanLySieuThi.exe
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\bin\Debug\QuanLySieuThi.pdb
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\bin\Debug\Guna.UI2.dll
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csprojAssemblyReference.cache
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormDangNhap.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormHetHan.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormKhachHang.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLy.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLyDangNhapNV.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLyKho.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLyMatHang.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormQuanLyNhanViencs.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormThongKeDoanhSo.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FromThemNhanVien.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.Properties.Resources.resources
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.GenerateResource.cache
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CoreCompileInputs.cache
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CopyComplete
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
+C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb

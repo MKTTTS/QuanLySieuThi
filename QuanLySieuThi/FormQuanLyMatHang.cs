@@ -213,8 +213,8 @@ namespace QuanLySieuThi
         {
             string loaimathang = this.comboBoxLoaiMH.Text;
             string s = this.textBoxTimkiemMatHang.Text;
-            string sql1 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%'";
-            string sql2 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%' AND LoaiMatHang.TenLoai = N'"+loaimathang+"'";
+            string sql1 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng', Soluong as N'Số lượng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%'";
+            string sql2 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng', Soluong as N'Số lượng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%' AND LoaiMatHang.TenLoai = N'"+loaimathang+"'";
             string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
             SqlConnection sqlCon = new SqlConnection(conString);
             sqlCon.Open();

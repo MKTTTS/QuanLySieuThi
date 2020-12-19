@@ -81,5 +81,14 @@ namespace QuanLySieuThi
             panelChildForm.Controls.Add(f);
             openChildForm(f);
         }
+
+        private void btnDoanhSo_Click(object sender, EventArgs e)
+        {
+            FormThongKeDoanhSo f = new FormThongKeDoanhSo();
+            //f.Dock = System.Windows.Forms.DockStyle.Fill;
+            f.TopLevel = false;
+            panelChildForm.Controls.Add(f);
+            openChildForm(f);
+        }
     }
 }
