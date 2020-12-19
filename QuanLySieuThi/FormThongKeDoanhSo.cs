@@ -265,7 +265,7 @@ namespace QuanLySieuThi
 
         private void txtThongkeDoanhso_Click(object sender, EventArgs e)
         {
-            if (!CheckNam(this.textBoxNamNhap.Text))
+            if (!CheckNam(this.textBoxNam.Text))
             {
                 MessageBox.Show("Năm không hợp lệ");
                 this.textBoxNam.Select();
@@ -281,19 +281,19 @@ namespace QuanLySieuThi
                 string sql;
                 if (this.comboBoxThang.Text == "Cả năm")
                 {
-                    sql = "SELECT MaHoaDon as 'Mã hóa đơn', CONVERT(varchar(10), NgayTao, 103) as N'Ngày tạo', TongTien as N'Tổng tiền', (CASE WHEN MaKhachHang is null THEN 'Trống' ELSE MaKhachHang END) as N'Mã khách hàng' FROM HoaDon WHERE YEAR(NgayTao) = '" + this.textBoxNamNhap.Text + "'";
+                    sql = "SELECT MaHoaDon as 'Mã hóa đơn', CONVERT(varchar(10), NgayTao, 103) as N'Ngày tạo', TongTien as N'Tổng tiền', (CASE WHEN MaKhachHang is null THEN 'Trống' ELSE MaKhachHang END) as N'Mã khách hàng' FROM HoaDon WHERE YEAR(NgayTao) = '" + this.textBoxNam.Text + "'";
                 }
                 else
                 {
                     int k = 0;
-                    foreach (char c in this.comboBoxThangNhap.Text)
+                    foreach (char c in this.comboBoxThang.Text)
                     {
                         if (char.IsDigit(c))
                         {
                             k = k * 10 + Int32.Parse(c.ToString());
                         }
                     }
-                    sql = "SELECT MaHoaDon as 'Mã hóa đơn', CONVERT(varchar(10), NgayTao, 103) as N'Ngày tạo', TongTien as N'Tổng tiền', (CASE WHEN MaKhachHang is null THEN N'Trống' ELSE MaKhachHang END) as N'Mã khách hàng' FROM HoaDon WHERE YEAR(NgayTao) = '" + this.textBoxNamNhap.Text + "' AND MONTH(NgayTao) = '" + k.ToString() + "'";
+                    sql = "SELECT MaHoaDon as 'Mã hóa đơn', CONVERT(varchar(10), NgayTao, 103) as N'Ngày tạo', TongTien as N'Tổng tiền', (CASE WHEN MaKhachHang is null THEN N'Trống' ELSE MaKhachHang END) as N'Mã khách hàng' FROM HoaDon WHERE YEAR(NgayTao) = '" + this.textBoxNam.Text + "' AND MONTH(NgayTao) = '" + k.ToString() + "'";
                 }
 
                 SqlDataAdapter da = new SqlDataAdapter(sql, sqlCon);
@@ -339,7 +339,7 @@ namespace QuanLySieuThi
                     da.Fill(dt);
                     this.dataGridViewTTHoaDon.DataSource = dt;
                     sqlCon.Close();
-                    string sql_ttkh;
+                    
                     string mkh = this.dataGridViewHoaDon.Rows[e.RowIndex].Cells["Mã khách hàng"].Value.ToString();
                     if(mkh == "Trống")
                     {
