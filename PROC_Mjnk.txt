@@ -1,0 +1,9 @@
+CREATE PROC [dbo].[THONGTINKHACHHANG]
+@makhachhang varchar(10)
+AS
+BEGIN
+SELECT KhachHang.MaKhachHang, KhachHang.HoTen, KhachHang.GioiTinh, KhachHang.DiemThuong, KhachHang.SDT , 
+(CASE WHEN SUM(HoaDon.TongTien) is null THEN 0 ELSE SUM(HoaDon.TongTien) END) as Mua
+FROM KhachHang LEFT JOIN HoaDon ON KhachHang.MaKhachHang = HoaDon.MaKhachHang WHERE KhachHang.MaKhachHang = @makhachhang
+GROUP BY KhachHang.MaKhachHang, KhachHang.HoTen, KhachHang.GioiTinh, KhachHang.DiemThuong, KhachHang.SDT 
+END

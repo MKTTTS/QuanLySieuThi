@@ -37,29 +37,11 @@ namespace QuanLySieuThi
             this.panel1.Visible = !r;
         }
 
-        private void btnKhachHang_Click(object sender, EventArgs e)
-        {
-            FormKhachHang form = new FormKhachHang();
-            form.TopLevel = false;
-            panelChildForm.Controls.Add(form);
-            openChildForm(form);
-        }
+        
 
-        private void btnHangHoa_Click(object sender, EventArgs e)
-        {
-            FormQuanLyMatHang form = new FormQuanLyMatHang();
-            form.TopLevel = false;
-            panelChildForm.Controls.Add(form);
-            openChildForm(form);
-        }
 
-        private void btnDoanhSo_Click(object sender, EventArgs e)
-        {
-            FormThongKeDoanhSo form = new FormThongKeDoanhSo();
-            form.TopLevel = false;
-            panelChildForm.Controls.Add(form);
-            openChildForm(form);
-        }
+
+
 
         private void FormQuanLy_Load(object sender, EventArgs e)
         {
@@ -87,6 +69,14 @@ namespace QuanLySieuThi
         {
             FormQuanLyDangNhapNV f = new FormQuanLyDangNhapNV();
             //f.Dock = System.Windows.Forms.DockStyle.Fill;
+            f.TopLevel = false;
+            panelChildForm.Controls.Add(f);
+            openChildForm(f);
+        }
+
+        private void btnKhachHang_Click_1(object sender, EventArgs e)
+        {
+            FormKhachHang f = new FormKhachHang();
             f.TopLevel = false;
             panelChildForm.Controls.Add(f);
             openChildForm(f);
