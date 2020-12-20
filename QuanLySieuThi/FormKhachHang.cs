@@ -18,6 +18,7 @@ namespace QuanLySieuThi
         public FormKhachHang()
         {
             InitializeComponent();
+            this.textBoxSearch.Text = "";
         }
 
         private void FormKhachHang_Load(object sender, EventArgs e)
@@ -26,7 +27,8 @@ namespace QuanLySieuThi
         }
         public void LoadKhachHang()
         {
-            string sql = "SELECT KhachHang.MaKhachHang as N'Mã khách hàng', KhachHang.HoTen as N'Họ tên', KhachHang.GioiTinh as N'Giới tính', (CASE WHEN SUM(HoaDon.TongTien) is null THEN 0 ELSE SUM(HoaDon.TongTien) END) as N'Số tiền đã mua' FROM KhachHang LEFT JOIN HoaDon ON KhachHang.MaKhachHang = HoaDon.MaKhachHang GROUP BY KhachHang.MaKhachHang, KhachHang.HoTen, KhachHang.GioiTinh";
+            string key = this.textBoxSearch.Text;
+            string sql = "SELECT KhachHang.MaKhachHang as N'Mã khách hàng', KhachHang.HoTen as N'Họ tên', KhachHang.GioiTinh as N'Giới tính', (CASE WHEN SUM(HoaDon.TongTien) is null THEN 0 ELSE SUM(HoaDon.TongTien) END) as N'Số tiền đã mua' FROM KhachHang LEFT JOIN HoaDon ON KhachHang.MaKhachHang = HoaDon.MaKhachHang WHERE LOWER(KhachHang.MaKhachHang) like '%'+LOWER((N'"+key+"'))+'%' OR LOWER(KhachHang.HoTen) like  '%'+LOWER((N'"+key+"'))+'%' GROUP BY KhachHang.MaKhachHang, KhachHang.HoTen, KhachHang.GioiTinh ";
             DataTable dt = new DataTable();
             string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
             SqlConnection sqlCon = new SqlConnection(conString);
@@ -40,6 +42,21 @@ namespace QuanLySieuThi
         private void label12_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+        public bool Injection(string s)
+        {
+            bool result = false;
+            foreach (Char c in s)
+            {
+                if (!Char.IsLetterOrDigit(c))
+                {
+                    if (!Char.IsWhiteSpace(c))
+                    {
+                        result = true;
+                    } 
+                }
+            }
+            return result;
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -57,6 +74,16 @@ namespace QuanLySieuThi
                     this.guna2TextBoxMua.Text = r["Mua"].ToString();
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Injection(this.textBoxSearch.Text))
+            {
+                MessageBox.Show("Từ khóa không hợp lệ");
+                return;
+            }
+            LoadKhachHang();
         }
     }
 }

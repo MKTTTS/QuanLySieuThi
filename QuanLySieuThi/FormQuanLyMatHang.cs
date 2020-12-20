@@ -38,6 +38,11 @@ namespace QuanLySieuThi
         }
         public void LoadLoaiHangHoa()
         {
+            if (Injection(this.textBoxSearch.Text))
+            {
+                MessageBox.Show("Từ khóa không hợp lệ");
+                return;
+            }
             DataTable dt = new DataTable();
             string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
             SqlConnection sqlCon = new SqlConnection(conString);
@@ -47,6 +52,21 @@ namespace QuanLySieuThi
             da.Fill(dt);
             this.dataGridView1.DataSource = dt;
             sqlCon.Close();
+        }
+        public bool Injection(string s)
+        {
+            bool result = false;
+            foreach (Char c in s)
+            {
+                if (!Char.IsLetterOrDigit(c))
+                {
+                    if (!Char.IsWhiteSpace(c))
+                    {
+                        result = true;
+                    }
+                }
+            }
+            return result;
         }
 
         private void FormQuanLyMatHang_Load(object sender, EventArgs e)
@@ -212,6 +232,11 @@ namespace QuanLySieuThi
         public void LoadMatHang()
         {
             string loaimathang = this.comboBoxLoaiMH.Text;
+            if (Injection(loaimathang))
+            {
+                MessageBox.Show("Từ khóa không hợp lệ");
+                return;
+            }
             string s = this.textBoxTimkiemMatHang.Text;
             string sql1 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng', Soluong as N'Số lượng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%'";
             string sql2 = "SELECT MaMatHang AS N'Mã mặt hàng', TenMatHang AS N'Tên mặt hàng', Soluong as N'Số lượng' FROM MatHang JOIN LoaiMatHang ON MatHang.MaLoai = LoaiMatHang.MaLoai WHERE LOWER(TenMatHang) LIKE '%' + LOWER(N'" + s + "')+'%' AND LoaiMatHang.TenLoai = N'"+loaimathang+"'";

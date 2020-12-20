@@ -165,41 +165,7 @@ namespace QuanLySieuThi
             this.textBoxSDTKHThemmoi.Text = "";
             this.comboBoxGioiTinhKHThemmoi.Text = "";
         }
-        private void buttonThemmoiKH_Click(object sender, EventArgs e)
-        {
-            if (textBoxHoTenKHThemmoi.Text == "")
-            {
-                MessageBox.Show("Chưa nhập họ tên khách hàng");
-                return;
-            }
-            if (comboBoxGioiTinhKHThemmoi.Text == "")
-            {
-                MessageBox.Show("Chưa nhập giới tính khách hàng");
-                return;
-            }
-            if (textBoxSDTKHThemmoi.Text == "")
-            {
-                MessageBox.Show("Chưa nhập số điện thoại khách hàng");
-                return;
-            }
-            if (!CheckSDT(textBoxSDTKHThemmoi.Text))
-            {
-                MessageBox.Show("Số điện thoại không hợp lệ");
-                return;
-            }
-            string sql = "THEMKHACHHANG";
-            List<CustomerParameter> lst = new List<CustomerParameter>();
-            lst.Add(new CustomerParameter() { key = "@makhachhang", value = this.textBoxMaKHThemmoi.Text });
-            lst.Add(new CustomerParameter() { key = "@hoten", value = this.textBoxHoTenKHThemmoi.Text });
-            lst.Add(new CustomerParameter() { key = "@gioitinh", value = this.comboBoxGioiTinhKHThemmoi.Text });
-            lst.Add(new CustomerParameter() { key = "@sdt", value = this.textBoxSDTKHThemmoi.Text });
-            var r = new DatabaseQLST().Excute(sql, lst, null);
-            if (r > 0)
-            {
-                MessageBox.Show("Thêm khách hàng thành công.");
-                LoadThemmoiKH();
-            }
-        }
+
 
         private void buttonHuyHoaDon_Click(object sender, EventArgs e)
         {
@@ -680,6 +646,42 @@ namespace QuanLySieuThi
             {
                 MessageBox.Show("Khách hàng chưa thanh toán đủ tiền");
                 return;
+            }
+        }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            if (textBoxHoTenKHThemmoi.Text == "")
+            {
+                MessageBox.Show("Chưa nhập họ tên khách hàng");
+                return;
+            }
+            if (comboBoxGioiTinhKHThemmoi.Text == "")
+            {
+                MessageBox.Show("Chưa nhập giới tính khách hàng");
+                return;
+            }
+            if (textBoxSDTKHThemmoi.Text == "")
+            {
+                MessageBox.Show("Chưa nhập số điện thoại khách hàng");
+                return;
+            }
+            if (!CheckSDT(textBoxSDTKHThemmoi.Text))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ");
+                return;
+            }
+            string sql = "THEMKHACHHANG";
+            List<CustomerParameter> lst = new List<CustomerParameter>();
+            lst.Add(new CustomerParameter() { key = "@makhachhang", value = this.textBoxMaKHThemmoi.Text });
+            lst.Add(new CustomerParameter() { key = "@hoten", value = this.textBoxHoTenKHThemmoi.Text });
+            lst.Add(new CustomerParameter() { key = "@gioitinh", value = this.comboBoxGioiTinhKHThemmoi.Text });
+            lst.Add(new CustomerParameter() { key = "@sdt", value = this.textBoxSDTKHThemmoi.Text });
+            var r = new DatabaseQLST().Excute(sql, lst, null);
+            if (r > 0)
+            {
+                MessageBox.Show("Thêm khách hàng thành công.");
+                LoadThemmoiKH();
             }
         }
     }

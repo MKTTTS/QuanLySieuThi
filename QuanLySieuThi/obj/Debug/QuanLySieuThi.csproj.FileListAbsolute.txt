@@ -119,3 +119,5 @@ C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\
 C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.csproj.CopyComplete
 C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.exe
 C:\Users\dang tien\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.pdb
+C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormThuNgan.resources
+C:\Users\admin\Desktop\New folder (4)\QuanLySieuThi\QuanLySieuThi\obj\Debug\QuanLySieuThi.FormXoaNhanVien.resources

@@ -116,6 +116,7 @@ namespace QuanLySieuThi
                 VietPhieu(true);
                 this.button1.Text = "LƯU";
                 this.maskedTextBoxHSD.Visible = this.checkBox1.Checked;
+                this.textBoxGiaNhap.Text = "";
             }
             else
             {
@@ -355,6 +356,7 @@ namespace QuanLySieuThi
                 k = k + Int32.Parse(r["Giá lô hàng"].ToString());
             }
             this.textBoxTongTien.Text = k.ToString();
+            this.textBoxGiaNhap.Text = "";
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

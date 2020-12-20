@@ -164,6 +164,12 @@
     <EmbeddedResource Include="FormThongKeDoanhSo.resx">
       <DependentUpon>FormThongKeDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormThuNgan.resx">
+      <DependentUpon>FormThuNgan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXoaNhanVien.resx">
+      <DependentUpon>FormXoaNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FromThemNhanVien.resx">
       <DependentUpon>FromThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -230,7 +236,16 @@
     <None Include="Resources\help.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\log-out.png" />
+    <None Include="Resources\Background.PNG" />
+    <None Include="Resources\BacgroundQLK.PNG" />
+    <None Include="Resources\backgroundtN%28left%29.PNG" />
+    <None Include="Resources\backgroundtN%28right%29.PNG" />
+    <None Include="Resources\Backgfull.PNG" />
+    <None Include="Resources\bk2.PNG" />
+    <None Include="Resources\bk3.PNG" />
     <Content Include="Resources\grocery-cart %281%29.png" />
+    <None Include="Resources\grocery-cart %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

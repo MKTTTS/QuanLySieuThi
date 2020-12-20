@@ -90,5 +90,13 @@ namespace QuanLySieuThi
             panelChildForm.Controls.Add(f);
             openChildForm(f);
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            FormDangNhap f = new FormDangNhap();
+            this.Hide();
+            f.ShowDialog();
+            this.Dispose();
+        }
     }
 }
