@@ -33,7 +33,7 @@ GO
 ALTER TRIGGER [dbo].[DELETEDONVIHANGHOA] ON [dbo].[DonViHangHoa] FOR DELETE
 AS
 BEGIN
-	UPDATE MatHang SET MatHang.Soluong = MatHang.Soluong - 1 WHERE MatHang.MaMatHang = (SELECT distinct MaMatHang   FROM deleted)
+	UPDATE MatHang SET MatHang.Soluong = MatHang.Soluong - (SELECT COUNT(*) FROM deleted) WHERE MatHang.MaMatHang = (SELECT distinct MaMatHang   FROM deleted)
 END
 
 go

@@ -46,28 +46,36 @@ namespace QuanLySieuThi
 
         private void XuLy_btn_Click(object sender, EventArgs e)
         {
-            var rows = this.donViHangHoaDataGridView.SelectedRows;
-            foreach(DataGridViewRow r in rows)
+            if(this.donViHangHoaBindingSource.Count == 0)
             {
-                string MaMatHang = r.Cells[0].Value.ToString();
-                DateTime NgaySanXuat = (DateTime)r.Cells[5].Value;
-                DateTime HanSuDung = (DateTime)r.Cells[6].Value;
-                string sqlHanSuDung = HanSuDung.ToString("yyyy-MM-dd HH:mm:ss").Split(' ')[0];
-                string sqlNgaySanXuat = NgaySanXuat.ToString("yyyy-MM-dd HH:mm:ss").Split(' ')[0];
+                MessageBox.Show("Đã xử lý hết");
+                this.Dispose();
+            }
+            else
+            {
+                var rows = this.donViHangHoaDataGridView.SelectedRows;
+                foreach (DataGridViewRow r in rows)
+                {
+                    string MaMatHang = r.Cells[0].Value.ToString();
+                    DateTime NgaySanXuat = (DateTime)r.Cells[5].Value;
+                    DateTime HanSuDung = (DateTime)r.Cells[6].Value;
+                    string sqlHanSuDung = HanSuDung.ToString("yyyy-MM-dd HH:mm:ss").Split(' ')[0];
+                    string sqlNgaySanXuat = NgaySanXuat.ToString("yyyy-MM-dd HH:mm:ss").Split(' ')[0];
 
-                string sql = "exec PROC_XoaMatHang @MaMatHang = '" + MaMatHang + "', @NgaySanXuat = '" + sqlNgaySanXuat + "', @HanSuDung = '" + sqlHanSuDung + "'";
-                string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
-                SqlConnection sqlCon = new SqlConnection(conString);
-                sqlCon.Open();
-                DataTable dt = new DataTable();
+                    string sql = "exec PROC_XoaMatHang @MaMatHang = '" + MaMatHang + "', @NgaySanXuat = '" + sqlNgaySanXuat + "', @HanSuDung = '" + sqlHanSuDung + "'";
+                    string conString = ConfigurationManager.ConnectionStrings["myconnection"].ConnectionString;
+                    SqlConnection sqlCon = new SqlConnection(conString);
+                    sqlCon.Open();
+                    DataTable dt = new DataTable();
 
-                SqlDataAdapter da = new SqlDataAdapter(sql, sqlCon);
-                da.Fill(dt);
-                this.donViHangHoaBindingSource.DataSource = dt;
-                sqlCon.Close();
+                    SqlDataAdapter da = new SqlDataAdapter(sql, sqlCon);
+                    da.Fill(dt);
+                    this.donViHangHoaBindingSource.DataSource = dt;
+                    sqlCon.Close();
 
-                LoadTable();
+                    LoadTable();
 
+                }
             }
         }
     }
