@@ -452,7 +452,7 @@ namespace QuanLySieuThi
                         sqlCon.Open();
                         DateTime now = DateTime.Now;
                         string ngaynhap = now.ToString("yyyy-MM-dd");
-                        string sql = "SELECT MAX(MaHoaDon) as MaxMHD FROM HoaDon";
+                        string sql = "SELECT COUNT(MaHoaDon) as MaxMHD FROM HoaDon";
                         int n = 1;
                         using (SqlCommand cmd = sqlCon.CreateCommand())
                         {
@@ -565,7 +565,7 @@ namespace QuanLySieuThi
                         sqlCon.Open();
                         DateTime now = DateTime.Now;
                         string ngaynhap = now.ToString("yyyy-MM-dd");
-                        string sql = "SELECT MAX(MaHoaDon) as MaxMHD FROM HoaDon";
+                        string sql = "SELECT COUNT(MaHoaDon) as MaxMHD FROM HoaDon";
                         int n = 1;
                         using (SqlCommand cmd = sqlCon.CreateCommand())
                         {
